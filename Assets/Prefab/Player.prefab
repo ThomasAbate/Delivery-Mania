@@ -73,10 +73,10 @@ GameObject:
   - component: {fileID: 7946185954301621850}
   - component: {fileID: 9096167467045128593}
   - component: {fileID: 8690906558322101848}
-  - component: {fileID: 3624811098592034031}
   - component: {fileID: 6127016122765964034}
   - component: {fileID: 8567161227199797490}
   - component: {fileID: 9070200536924109646}
+  - component: {fileID: 8397545585731077287}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -152,29 +152,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3624811098592034031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618946245412262410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78fc5e0e8e344644385adefc7bce58c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  groundDrag: 5
-  jumpForc: 10
-  jumpCooldwon: 0.25
-  airMultiplier: 0.4
-  jumpKey: 32
-  playerHeight: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  orientation: {fileID: 4970565190698189119}
 --- !u!54 &6127016122765964034
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -220,6 +197,25 @@ MonoBehaviour:
   pickUpRange: 5
   moveFroce: 250
   holdParent: {fileID: 0}
+--- !u!114 &8397545585731077287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618946245412262410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6395c4647fc78ca49b301452d2b77b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  jumpForce: 10
+  rb: {fileID: 6127016122765964034}
+  isCarton: 0
+  isDepot: 0
+  isGrounded: 0
+  freeHand: 0
 --- !u!1 &7085710998167431520
 GameObject:
   m_ObjectHideFlags: 0
