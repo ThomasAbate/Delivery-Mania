@@ -126,12 +126,10 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("J'appuie sur la touche");
             isSprinting = true;
         }
         if (context.canceled)
         {
-            Debug.Log("J'ai arrete d'appuyer sur la touche");
             isSprinting = false;
         }
     }
