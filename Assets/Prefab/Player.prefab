@@ -136,13 +136,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  gravity: -10
-  groundCheck: {fileID: 8747434528225437283}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
+  sprint: 5
   moveSmoothTime: 0.2
+  jumpSpeed: 10
+  jumpHoldTime: 0.1
+  jumpTimer: 0
+  gravity: 25
+  isJumping: 0
 --- !u!114 &755372361177328105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +203,19 @@ MonoBehaviour:
     m_ActionId: fd6fcbb2-4171-417c-8629-4d8390477105
     m_ActionName: Controller/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1629858922502004150}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b3088fb0-29eb-4836-9fc4-48972702d391
     m_ActionName: Controller/Jump[/Keyboard/space]
   - m_PersistentCalls:
@@ -222,6 +234,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9c6a6820-a92f-492e-a967-7029e57f0016
     m_ActionName: Controller/Interact[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1629858922502004150}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Sprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4c94ec00-bb09-4357-b24b-bee2a69579be
+    m_ActionName: Controller/Sprint[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controller

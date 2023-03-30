@@ -2,32 +2,42 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
 
-    private CharacterController characterController;
+    private CharacterController controller;
 
-    public float speed = 5f;
-    public float gravity = -10f;
-
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-
-    private Vector3 velocity;
+    [Header("Movement Settings")]
+    [Space]
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float sprint = 5f;
+    [SerializeField] private float moveSmoothTime = 0.2f;
     private Vector3 currentMoveVelocity;
     private Vector3 moveDampVelocity;
-    public float moveSmoothTime = 0.2f;
-    bool isGrounded;
+    private bool isSprinting;
+    private float speedValue;
+
+    [Header("Jump Settings")]
+    [Space]
+    [SerializeField] private float jumpSpeed = 8.0f;
+    [SerializeField] private float jumpHoldTime = 0.2f;
+    [SerializeField] private float jumpTimer;
+    [SerializeField] private float gravity = 9.8f;
+    [SerializeField] private bool isJumping;
+    private float verticalVelocity;
+
 
     Vector2 movement;
     private void Awake()
     {
         if (Instance) Destroy(this);
         else Instance = this;
-        characterController = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
+        speedValue = speed;
     }
 
     void Update()
@@ -35,22 +45,46 @@ public class PlayerController : MonoBehaviour
         float x = movement.x;
         float z = movement.y;
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
+        CheckSprint();
 
         Vector3 move = transform.right * x + transform.forward * z;
         currentMoveVelocity = Vector3.SmoothDamp(
             currentMoveVelocity,
-            move * speed,
+            move * speedValue,
             ref moveDampVelocity,
             moveSmoothTime);
-        characterController.Move(currentMoveVelocity * Time.deltaTime);
+        controller.Move(currentMoveVelocity * Time.deltaTime);
 
-        velocity.y += gravity * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime);
+        CheckJump();
+    }
+
+    void CheckSprint()
+    {
+        if(isSprinting)
+        {
+            speedValue = speed + sprint;
+        }
+        else
+        {
+            speedValue = speed;
+        }
+    }
+    void CheckJump()
+    {
+        if (isJumping)
+        {
+            jumpTimer += Time.deltaTime;
+            float jumpHeight = Mathf.Clamp01(jumpTimer / jumpHoldTime);
+            verticalVelocity = jumpSpeed * jumpHeight;
+            if (verticalVelocity >= jumpSpeed)
+                isJumping = false;
+        }
+        else
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+
+        controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -64,8 +98,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #region Input
+
     public void Move(InputAction.CallbackContext context)
     {
         movement = context.ReadValue<Vector2>();
     }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if(context.started) { 
+            if (controller.isGrounded)
+            {
+                isJumping = true;
+                jumpTimer = 0.0f;
+            }
+        }
+        else if (context.canceled)
+        {
+            isJumping = false;
+            jumpTimer = 0;
+        }
+
+    }
+
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("J'appuie sur la touche");
+            isSprinting = true;
+        }
+        if (context.canceled)
+        {
+            Debug.Log("J'ai arrete d'appuyer sur la touche");
+            isSprinting = false;
+        }
+    }
+
+    #endregion
 }
