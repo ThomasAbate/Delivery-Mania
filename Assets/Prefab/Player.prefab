@@ -135,10 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3137a30b623519d4e95a03d91bf7bd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  sprint: 5
+  speed: 4.5
+  sprint: 4.5
   moveSmoothTime: 0.2
-  jumpSpeed: 10
+  jumpSpeed: 5
   jumpHoldTime: 0.1
   jumpTimer: 0
   gravity: 25
