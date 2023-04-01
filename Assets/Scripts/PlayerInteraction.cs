@@ -18,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour
     [HideInInspector] public bool isHolding;
     public Transform holdPosition;
 
-    public GameObject Box;
+    private GameObject Box;
 
     private Transform cameraPos;
     private bool doVisibleTest;
@@ -73,6 +73,10 @@ public class PlayerInteraction : MonoBehaviour
                 _possibleInteractive = interactive;
                 SetInteraction(_possibleInteractive.interactionType);
             }
+
+            Box = other.transform.gameObject;
+            Box.GetComponent<Outline>().enabled = true;
+
         }
     }
 
@@ -82,6 +86,9 @@ public class PlayerInteraction : MonoBehaviour
         {
             doVisibleTest = false;
             if(!isHolding) StopInteractive();
+
+            Box.GetComponent<Outline>().enabled = false;
+            Box = null;
         }
     }
 
@@ -108,21 +115,7 @@ public class PlayerInteraction : MonoBehaviour
         if (doVisibleTest)
         {
             isObjectVisible = InteractionVisible();
-        }
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity)) 
-        {
-            if(hit.transform.CompareTag("Interactive"))
-            {
-                Box = hit.transform.gameObject;
-                Box.GetComponent<Outline>().enabled = true;
-            }
-            else
-            {
-                Box.GetComponent<Outline>().enabled = false;
-                Box = null; 
-            }
-        }
+        } 
+        
     }
 }
