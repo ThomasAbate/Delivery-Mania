@@ -2010,12 +2010,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 615758862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d25a62ea4c2c33a47b6d755aca94a542, type: 3}
+  m_Script: {fileID: 11500000, guid: 243545d0235ebdc49acbe0dbc8487fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lvl: 0
-  _score: 2
-  _charaName: adam
+  _lvl: 2
+  _score: 500
+  _charaName: John
   maxHP: 20
 --- !u!1 &697757357
 GameObject:
