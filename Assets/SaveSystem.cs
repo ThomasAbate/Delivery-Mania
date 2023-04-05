@@ -29,6 +29,7 @@ public class SaveSystem : MonoBehaviour
 	public void Save()
 	{
 		
+		/*
 		string saveFilePath = Application.persistentDataPath + "/saveGame.sav";
 		FileStream file = new FileStream(saveFilePath, FileMode.OpenOrCreate);
 
@@ -40,14 +41,23 @@ public class SaveSystem : MonoBehaviour
 
 		/*dataContainer.score = score;		  //create an instance of the nested class and sets it's values
 		dataContainer.lvl = lvl;			 //
-		dataContainer.charaName = charaName; //*/
+		dataContainer.charaName = charaName; //
 
 		file.Close(); //don't forget to close
+		*/
 	}
 	public void Load()
 	{
-		string saveFilePath = Application.persistentDataPath + "/saveGame.sav";
-		FileStream file = new FileStream(saveFilePath, FileMode.Open); 
+		string saveFilePath = Application.persistentDataPath + "/saveGame1.fsav";
+
+		StreamReader sr = new StreamReader(saveFilePath);
+		string jsonString = sr.ReadToEnd();
+
+		sr.Close();
+		print(jsonString);
+
+
+		/*FileStream file = new FileStream(saveFilePath, FileMode.Open); 
 
 		BinaryFormatter binaryFormatter = new BinaryFormatter();
 
@@ -56,7 +66,7 @@ public class SaveSystem : MonoBehaviour
 		print("lvl : " + dataContainer._lvl);
 		print("name : " + dataContainer._charaName);
 
-		file.Close();
+		file.Close();*/
 	}
 
 	private void Update()
