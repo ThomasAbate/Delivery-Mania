@@ -2,12 +2,12 @@ using System.Collections;
 using System.IO;
 using UnityEngine;
 
-public class SaveSystem : MonoBehaviour
+public class SaveSystemBinary : MonoBehaviour
 {
 	//information variables : (HP, Player Lvl, Game Lvl, Player Name/Character, Inventory, etc...)
-	//need to save variables in the same order that they are loaded  &  not doward/upward compatible (i.e. when you add/remove variables from your saveGame it becomes corrupt)
-	public int HP = 10;
-	public string _name = "Bob";
+	//must read data in the same order as writen data
+	public int lvl = 2;
+	public string charaName = "Bob";
 	
 	void Update()
 	{
@@ -19,10 +19,10 @@ public class SaveSystem : MonoBehaviour
 			FileStream fs = new FileStream(saveFilePath, FileMode.OpenOrCreate);
 			BinaryWriter sw = new BinaryWriter(fs);
 
-			sw.Write(HP);
-			sw.Write(_name);
+			sw.Write(lvl);
+			sw.Write(charaName);
 
-			fs.Close();
+			fs.Close(); //always close stream & writer
 			sw.Close();
 		}
 
@@ -33,10 +33,10 @@ public class SaveSystem : MonoBehaviour
 			FileStream fs = new FileStream (saveFilePath, FileMode.Open);
 			BinaryReader sr = new BinaryReader(fs);
 
-			print("HP : " + sr.ReadInt32());
-			print("name : " + sr.ReadString());
+			print("Current Level : " + sr.ReadInt32());
+			print("Character Name : " + sr.ReadString());
 
-			fs.Close();
+			fs.Close(); //always close stream & reader
 			sr.Close();
 		}
 	}
