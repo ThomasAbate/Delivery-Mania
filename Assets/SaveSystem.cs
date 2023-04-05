@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-	int _lvl = 3;
-	int _score = 100;
-	string _charaName = "John";
-	int maxHP = 20; //doesn't need to be saved
+	public int _lvl = 3;
+	public int _score = 100;
+	public string _charaName = "John";
+	public int maxHP = 20; //doesn't need to be saved
 
 	[System.Serializable] //makes the class automatically serializable
 	private class DataContainer
@@ -47,7 +47,7 @@ public class SaveSystem : MonoBehaviour
 	public void Load()
 	{
 		string saveFilePath = Application.persistentDataPath + "/saveGame.sav";
-		FileStream file = new FileStream(saveFilePath, FileMode.OpenOrCreate);
+		FileStream file = new FileStream(saveFilePath, FileMode.Open); 
 
 		BinaryFormatter binaryFormatter = new BinaryFormatter();
 
@@ -69,7 +69,6 @@ public class SaveSystem : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.L))
 		{
 			Load();
-
 		}
 	}
 }
