@@ -41,8 +41,11 @@ public class SaveSystem : MonoBehaviour
 		jDataObject.Add("_score", _score);
 		jDataObject.Add("_lvl", _lvl);
 		jDataObject.Add("_charaName", _charaName);
+		
+		StreamWriter sw = new StreamWriter(saveFilePath);
+		sw.WriteLine(jObject.ToString());
 
-		print(jObject.ToString());
+		sw.Close();
 
 		/*
 		FileStream file = new FileStream(saveFilePath, FileMode.OpenOrCreate);
@@ -76,6 +79,7 @@ public class SaveSystem : MonoBehaviour
 		_charaName = (string)jObject["data"]["_charaName"];
 
 		print(jObject.ToString());
+
 		/*FileStream file = new FileStream(saveFilePath, FileMode.Open); 
 
 		BinaryFormatter binaryFormatter = new BinaryFormatter();
