@@ -29,9 +29,22 @@ public class SaveSystem : MonoBehaviour
 
 	public void Save()
 	{
-		
+		string saveFilePath = Application.persistentDataPath + "/saveGame1.fsav";
+		print("Saving to : " + saveFilePath);
+
+		JObject jObject = new JObject();
+		jObject.Add("componentName", GetType().ToString());
+
+		JObject jDataObject = new JObject();
+		jObject.Add("data", jDataObject);
+
+		jDataObject.Add("_score", _score);
+		jDataObject.Add("_lvl", _lvl);
+		jDataObject.Add("_charaName", _charaName);
+
+		print(jObject.ToString());
+
 		/*
-		string saveFilePath = Application.persistentDataPath + "/saveGame.sav";
 		FileStream file = new FileStream(saveFilePath, FileMode.OpenOrCreate);
 
 		DataContainer dataContainer = new DataContainer(_score, _lvl, _charaName);
@@ -55,13 +68,14 @@ public class SaveSystem : MonoBehaviour
 		string jsonString = sr.ReadToEnd();
 
 		sr.Close();
-		JObject jObj = JObject.Parse(jsonString);
+		JObject jObject = JObject.Parse(jsonString);
 
 		
-		_score = (int)jObj["data"]["_score"];
-		_lvl = (int)jObj["data"]["_lvl"];
-		_charaName = (string)jObj["data"]["_charaName"];
+		_score = (int)jObject["data"]["_score"];
+		_lvl = (int)jObject["data"]["_lvl"];
+		_charaName = (string)jObject["data"]["_charaName"];
 
+		print(jObject.ToString());
 		/*FileStream file = new FileStream(saveFilePath, FileMode.Open); 
 
 		BinaryFormatter binaryFormatter = new BinaryFormatter();
