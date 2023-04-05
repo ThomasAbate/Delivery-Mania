@@ -29,9 +29,11 @@ public class JsonUtilSave : MonoBehaviour
 
 	public void Saveju()
 	{
-		string jsonString = JsonUtility.ToJson(this);
+		DataContainer data = new DataContainer(_score, _lvl, _charaName);
 
-		string saveFilePath = Application.persistentDataPath + "/saveGame2.fsav";
+		string jsonString = JsonUtility.ToJson(data);
+
+		string saveFilePath = Application.persistentDataPath + "/saveGame1.fsav";
 		print("Saving to : " + saveFilePath + "\n" + jsonString);
 
 		StreamWriter sw = new StreamWriter(saveFilePath);
@@ -41,7 +43,7 @@ public class JsonUtilSave : MonoBehaviour
 	}
 	public void Loadju()
 	{
-		string saveFilePath = Application.persistentDataPath + "/saveGame2.fsav";
+		string saveFilePath = Application.persistentDataPath + "/saveGame1.fsav";
 
 		StreamReader sr = new StreamReader(saveFilePath);
 		string jsonString = sr.ReadToEnd();
@@ -50,7 +52,11 @@ public class JsonUtilSave : MonoBehaviour
 		
 		print(jsonString);
 
-		JsonUtility.FromJsonOverwrite(jsonString, this);
+		DataContainer data = JsonUtility.FromJson<DataContainer>(jsonString);
+
+		_score = data._score;
+		_lvl = data._lvl;
+		_charaName = data._charaName;
 	}
 
 
