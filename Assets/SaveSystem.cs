@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-	public int _lvl = 3;
-	public int _score = 100;
-	public string _charaName = "John";
+	public int _lvl;
+	public int _score;
+	public string _charaName;
 	public int maxHP = 20; //doesn't need to be saved
 
 	[System.Serializable] //makes the class automatically serializable
@@ -57,7 +57,10 @@ public class SaveSystem : MonoBehaviour
 		sr.Close();
 		JObject jObj = JObject.Parse(jsonString);
 
-		print("Component Name : " + jObj["componentName"]);
+		
+		_score = (int)jObj["data"]["_score"];
+		_lvl = (int)jObj["data"]["_lvl"];
+		_charaName = (string)jObj["data"]["_charaName"];
 
 		/*FileStream file = new FileStream(saveFilePath, FileMode.Open); 
 

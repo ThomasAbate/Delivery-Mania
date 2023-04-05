@@ -2013,6 +2013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a62ea4c2c33a47b6d755aca94a542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lvl: 0
+  _score: 2
+  _charaName: adam
+  maxHP: 20
 --- !u!1 &697757357
 GameObject:
   m_ObjectHideFlags: 0
