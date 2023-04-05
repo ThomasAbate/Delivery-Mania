@@ -17,7 +17,8 @@ public class SaveSystem : MonoBehaviour
 			print("saving to : " + saveFilePath);
 
 			StreamWriter sw = new StreamWriter(saveFilePath);
-			sw.WriteLine(HP);
+			sw.WriteLine("HP : " + HP);
+
 			sw.Close();
 		}
 	}
