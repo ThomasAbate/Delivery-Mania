@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -54,8 +55,9 @@ public class SaveSystem : MonoBehaviour
 		string jsonString = sr.ReadToEnd();
 
 		sr.Close();
-		print(jsonString);
+		JObject jObj = JObject.Parse(jsonString);
 
+		print("Component Name : " + jObj["componentName"]);
 
 		/*FileStream file = new FileStream(saveFilePath, FileMode.Open); 
 
