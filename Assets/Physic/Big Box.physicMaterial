@@ -6,7 +6,7 @@ PhysicMaterial:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gros Carton
+  m_Name: Big Box
   dynamicFriction: 1000
   staticFriction: 1000
   bounciness: 0

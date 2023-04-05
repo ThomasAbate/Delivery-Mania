@@ -1,3 +1,7 @@
+using System.Net;
+using System.Runtime.CompilerServices;
+using UnityEditor;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -5,25 +9,57 @@ using UnityEngine.UIElements;
 public enum InteractionType
 {
     None,
-    Pickup,
-    OpenDoor
+    Interactive,
+    Pickable
 }
+
 
 public class PlayerInteraction : MonoBehaviour
 {
     public static PlayerInteraction Instance;
-    private InteractionType _possibleInteraction = InteractionType.None;
-    private Interactive _possibleInteractive;
 
-    [HideInInspector] public bool isHolding;
-    public Transform holdPosition;
+    #region Interaction
 
-    private GameObject Box;
+    private InteractionType interactionType;
+    private GameObject possibleInteraction;
+    private Interactive interactive;
 
-    private Transform cameraPos;
-    private bool doVisibleTest;
-    private bool isObjectVisible;
+    #endregion
+
+    #region Pickup
+
+    [HideInInspector] public GameObject heldObject;
+    [HideInInspector] public Rigidbody heldObjectRb;
+    [SerializeField] private float pickupForce = 150.0f;
+    public Transform holdArea;
+    private Pickup pickup;
+
+    #endregion
+
+    #region Raycast
+
+    [SerializeField] private Transform cameraPos;
+    private RaycastHit hit;
+    [Range(1f, 50f)][SerializeField] private float distanceInteraction = 5f;
     [SerializeField] private LayerMask layerMask = ~0;
+
+    #endregion
+
+    #region UI
+
+    private Outline gameObjectOutline;
+
+    #endregion
+
+    #region Debug
+    [Space]
+    [Header("Debug")]
+    [Space]
+    [SerializeField] private bool visualDebugging = true;
+    [SerializeField] private Color color = new Color(0.75f, 0.2f, 0.2f, 0.75f);
+    [Range(1f, 10f)][SerializeField] private float lineWidth = 6f;
+
+    #endregion
 
 
     private void Awake()
@@ -36,86 +72,113 @@ public class PlayerInteraction : MonoBehaviour
     {
         cameraPos = Camera.main.transform;
     }
-    public void SetInteraction(InteractionType interaction)
-    {
-        _possibleInteraction = interaction;
-        //montrer ici ou créer un script InteractionHelper qu'il est possible d'intéragir dans le jeu
-        //highlight les contours de l'objet, afficher un icone de touche, etc...
-    }
 
     public void Interact(InputAction.CallbackContext ctx)
     {
-        if (_possibleInteraction != InteractionType.None && ctx.started)
+        if (ctx.started)
         {
-            if (doVisibleTest && !isObjectVisible) return;
             Interact();
+        }
+    }
+
+    private void Update()
+    {
+        if (heldObject == null)
+        {
+            if (Physics.Raycast(cameraPos.position, cameraPos.transform.forward, out hit, distanceInteraction, layerMask, QueryTriggerInteraction.Ignore))
+            {
+                if (possibleInteraction == null)
+                {
+                    SetInteractive();
+                    SetInteractiveUI();
+                }
+            }
+            else
+            {
+                possibleInteraction = null;
+                interactionType = InteractionType.None;
+                DisableInteractiveUI();
+            }
+        }
+        else if (heldObject != null)
+        {
+            MoveObject();
         }
     }
 
     private void Interact()
     {
-        _possibleInteractive.OnInteraction();
-        if (_possibleInteractive && _possibleInteractive.onlyOnce)
+        if (interactionType == InteractionType.None) return;
+        if (interactionType == InteractionType.Interactive)
         {
-            DisableInteractive();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.CompareTag("Interactive"))
-        {
-            doVisibleTest = true;
-            if(!isHolding)
+            interactive.OnInteraction();
+            if (interactive.onlyOnce)
             {
-                Interactive interactive = other.GetComponent<Interactive>();
-                if (interactive == null) return;
-                _possibleInteractive = interactive;
-                SetInteraction(_possibleInteractive.interactionType);
+                possibleInteraction.GetComponent<Interactive>().enabled = false;
             }
-
-            Box = other.transform.gameObject;
-            Box.GetComponent<Outline>().enabled = true;
-
+        }
+        if (interactionType == InteractionType.Pickable)
+        {
+            gameObjectOutline.enabled = false;
+            pickup.OnInteraction();
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void SetInteractive()
     {
-        if (other.transform.CompareTag("Interactive"))
+        possibleInteraction = hit.transform.gameObject;
+        if (possibleInteraction.CompareTag("Interactive"))
         {
-            doVisibleTest = false;
-            if(!isHolding) StopInteractive();
-
-            Box.GetComponent<Outline>().enabled = false;
-            Box = null;
+            interactive = possibleInteraction.GetComponent<Interactive>();
+            interactionType = InteractionType.Interactive;
+        }
+        if (possibleInteraction.CompareTag("Pickup"))
+        {
+            pickup = possibleInteraction.GetComponent<Pickup>();
+            interactionType = InteractionType.Pickable;
         }
     }
 
-    public void StopInteractive()
+    private void SetInteractiveUI()
     {
-        SetInteraction(InteractionType.None);
-        _possibleInteractive = null;
+        gameObjectOutline = possibleInteraction.GetComponent<Outline>();
+        gameObjectOutline.enabled = true;
     }
 
-    private void DisableInteractive()
+    private void DisableInteractiveUI()
     {
-        _possibleInteractive.GetComponent<SphereCollider>().enabled = false;
-        Destroy(_possibleInteractive);
-        SetInteraction(InteractionType.None);
-    }
-
-    bool InteractionVisible()
-    {
-        return (Physics.Raycast(cameraPos.position, cameraPos.transform.forward, 25f, layerMask));
-    }
-
-    private void Update()
-    {
-        if (doVisibleTest)
+        if(gameObjectOutline != null)
         {
-            isObjectVisible = InteractionVisible();
-        } 
-        
+            gameObjectOutline.enabled = false;
+            gameObjectOutline = null;
+        }
     }
+
+    private void MoveObject()
+    {
+        if(heldObjectRb == null)
+        {
+            heldObjectRb = heldObject.GetComponent<Rigidbody>();
+        }
+        if(Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
+        {
+            Vector3 moveDirection = (holdArea.position - heldObject.transform.position).normalized;
+            heldObjectRb.AddForce(moveDirection * pickupForce);
+        }
+    }
+
+#if UNITY_EDITOR
+
+    private void OnDrawGizmosSelected()
+    {
+        if (!visualDebugging)
+            return;
+
+        Handles.color = color;
+        Handles.DrawAAPolyLine(lineWidth,cameraPos.position, cameraPos.position + cameraPos.transform.forward * distanceInteraction);
+
+    }
+#endif
+
+
 }

@@ -79,8 +79,9 @@ public class Outline : MonoBehaviour {
   private Material outlineFillMaterial;
 
   private bool needsUpdate;
+  [HideInInspector] public bool isActive;
 
-  void Awake() {
+    void Awake() {
 
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
@@ -97,19 +98,24 @@ public class Outline : MonoBehaviour {
 
     // Apply material properties immediately
     needsUpdate = true;
+
+    isActive = true;
   }
 
   void OnEnable() {
-    foreach (var renderer in renderers) {
+        if(isActive)
+            {
+            foreach (var renderer in renderers) {
 
-      // Append outline shaders
-      var materials = renderer.sharedMaterials.ToList();
+                // Append outline shaders
+                var materials = renderer.sharedMaterials.ToList();
 
-      materials.Add(outlineMaskMaterial);
-      materials.Add(outlineFillMaterial);
+                materials.Add(outlineMaskMaterial);
+                materials.Add(outlineFillMaterial);
 
-      renderer.materials = materials.ToArray();
-    }
+                renderer.materials = materials.ToArray();
+            }
+        }
   }
 
   void OnValidate() {
