@@ -13,12 +13,12 @@ public class Menu : MonoBehaviour
         SettingsWindow.SetActive(false);
 	}
 
-	public void StartGame()
+	public void StartGame() //new game (tutorial lvl)
     {
         SceneManager.LoadScene("Tuto");
     }
 
-    public void Continue()
+    public void Continue() //from last save
     {
 
     }
@@ -26,17 +26,16 @@ public class Menu : MonoBehaviour
     public void Options()
     {
         SettingsWindow.SetActive(true);
-        Buttons.SetActive(false);
+        Buttons.SetActive(false); //to make sure you can't click them while in the options menu
     }
-    public void Back()
+    public void Back() //from options back to the main menu
     {
         SettingsWindow.SetActive(false);
         Buttons.SetActive(true);
-
     }
 
-    public void ExitGaem()
+    public void ExitGame() //close App
     {
-
+        Application.Quit();
     }
 }
