@@ -156,10 +156,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void MoveObject()
     {
-        if(heldObjectRb == null)
-        {
-            heldObjectRb = heldObject.GetComponent<Rigidbody>();
-        }
         if(Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
         {
             Vector3 moveDirection = (holdArea.position - heldObject.transform.position).normalized;

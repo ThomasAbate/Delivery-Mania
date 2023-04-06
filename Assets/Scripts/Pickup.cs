@@ -17,12 +17,14 @@ public class Pickup : MonoBehaviour
         {
             DropPhysics();
             PlayerInteraction.Instance.heldObject = null;
+            PlayerInteraction.Instance.heldObjectRb = null;
         }
         else
         {
             PickupPhysics();
             gameObject.GetComponent<Outline>().enabled = false;
             PlayerInteraction.Instance.heldObject = gameObject;
+            PlayerInteraction.Instance.heldObjectRb = gameObject.GetComponent<Rigidbody>();
         }
     }
 
