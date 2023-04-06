@@ -43,4 +43,9 @@ public class Pickup : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
         transform.parent = null;
     }
+
+    public void DisableInteraction()
+    {
+        this.enabled = false;
+    }
 }
