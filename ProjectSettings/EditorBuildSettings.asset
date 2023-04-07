@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Final Scenes/GamePlay/Tuto.unity
     guid: c522cef16821d214bbaec5b18ce6ae22
+  - enabled: 1
+    path: Assets/Scenes/Loris Test.unity
+    guid: 22fec1e9f203de545bd638e7da060fa8
   m_configObjects: {}

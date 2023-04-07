@@ -3,38 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JsonUtilSave : MonoBehaviour
 {
-	public int _lvl;
-	public int _score;
+	public int _options;
+
+	public string _lvl;
+
 	public string _charaName;
-	public int maxHP = 20; //doesn't need to be saved
 
 	[System.Serializable] //makes the class automatically serializable
 	private class DataContainer
 	{
 		//this nested class is a Data Container for all the variables that need to be saved
-		public int _score;
-		public int _lvl;
+		public int _options;
+
+		public string _lvl;
+
 		public string _charaName;
 
-		public DataContainer(int score, int lvl, string charaName)
+		public DataContainer(int score, string lvl, string charaName)
 		{
-			_score = score;
-			_lvl = lvl;
+			_options = score;
+
+			_lvl /*= lvl*/ = SceneManager.GetActiveScene().name;
+
 			_charaName = charaName;
 		}
 	}
 
 	public void Saveju()
 	{
-		DataContainer data = new DataContainer(_score, _lvl, _charaName);
+		DataContainer data = new DataContainer(_options, _lvl, _charaName);
 
 		string jsonString = JsonUtility.ToJson(data);
 
-		string saveFilePath = Application.persistentDataPath + "/saveGame1.fsav";
-		print("Saving to : " + saveFilePath + "\n" + jsonString);
+		string saveFilePath = Application.persistentDataPath + "/save" + 1 + ".fsav";
+		print("Saving : " + jsonString + "\n to : " + saveFilePath);
 
 		StreamWriter sw = new StreamWriter(saveFilePath);
 		sw.WriteLine(jsonString);
@@ -43,7 +49,7 @@ public class JsonUtilSave : MonoBehaviour
 	}
 	public void Loadju()
 	{
-		string saveFilePath = Application.persistentDataPath + "/saveGame1.fsav";
+		string saveFilePath = Application.persistentDataPath + "/save1.fsav";
 
 		StreamReader sr = new StreamReader(saveFilePath);
 		string jsonString = sr.ReadToEnd();
@@ -54,7 +60,7 @@ public class JsonUtilSave : MonoBehaviour
 
 		DataContainer data = JsonUtility.FromJson<DataContainer>(jsonString);
 
-		_score = data._score;
+		_options = data._options;
 		_lvl = data._lvl;
 		_charaName = data._charaName;
 	}

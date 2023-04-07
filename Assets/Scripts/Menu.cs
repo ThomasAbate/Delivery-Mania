@@ -7,6 +7,8 @@ public class Menu : MonoBehaviour
     public GameObject Buttons;
     public GameObject SettingsWindow;
 
+    public JsonUtilSave saveSystem;
+
 	private void Start() //to make sure there is no problem on start
 	{
 		Buttons.SetActive(true);
@@ -15,17 +17,19 @@ public class Menu : MonoBehaviour
 
 	public void StartGame() //new game (tutorial lvl)
     {
-        SceneManager.LoadScene("Tuto");
+        SceneManager.LoadScene("Loris Test");
     }
 
-    public void Continue() //from last save
+    public void Continue() //from the last save
     {
+        saveSystem.Loadju();
 
+        SceneManager.LoadScene(saveSystem._lvl);
     }
 
-    public void Options()
+    public void Options() //from menu to options
     {
-        SettingsWindow.SetActive(true);
+        SettingsWindow.SetActive(true); //options menu
         Buttons.SetActive(false); //to make sure you can't click them while in the options menu
     }
     public void Back() //from options back to the main menu

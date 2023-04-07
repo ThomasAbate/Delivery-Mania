@@ -38,7 +38,7 @@ public class SaveSystem : MonoBehaviour
 		JObject jDataObject = new JObject();
 		jObject.Add("data", jDataObject);
 
-		jDataObject.Add("_score", _score);
+		jDataObject.Add("_options", _score);
 		jDataObject.Add("_lvl", _lvl);
 		jDataObject.Add("_charaName", _charaName);
 		
@@ -50,7 +50,7 @@ public class SaveSystem : MonoBehaviour
 		/*
 		FileStream file = new FileStream(saveFilePath, FileMode.OpenOrCreate);
 
-		DataContainer dataContainer = new DataContainer(_score, _lvl, _charaName);
+		DataContainer dataContainer = new DataContainer(_options, _lvl, _charaName);
 
 		BinaryFormatter binaryFormatter = new BinaryFormatter();
 		
@@ -74,7 +74,7 @@ public class SaveSystem : MonoBehaviour
 		JObject jObject = JObject.Parse(jsonString);
 
 		
-		_score = (int)jObject["data"]["_score"];
+		_score = (int)jObject["data"]["_options"];
 		_lvl = (int)jObject["data"]["_lvl"];
 		_charaName = (string)jObject["data"]["_charaName"];
 
@@ -85,7 +85,7 @@ public class SaveSystem : MonoBehaviour
 		BinaryFormatter binaryFormatter = new BinaryFormatter();
 
 		DataContainer dataContainer = binaryFormatter.Deserialize(file) as DataContainer;
-		print("score : " + dataContainer._score);
+		print("score : " + dataContainer._options);
 		print("lvl : " + dataContainer._lvl);
 		print("name : " + dataContainer._charaName);
 
