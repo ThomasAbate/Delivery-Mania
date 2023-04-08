@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class BotController : MonoBehaviour
 {
-	Transform target;
+	[SerializeField] Transform target;
 
 	PatrolPath path;
 
