@@ -19,7 +19,7 @@ public class PatrolPath : MonoBehaviour
 		}
 	}
 
-	private int GetNextIndex(int i)
+	public int GetNextIndex(int i)
 	{
 		if(i+1 == transform.childCount)
 		{
@@ -29,7 +29,7 @@ public class PatrolPath : MonoBehaviour
 		return i + 1;
 	}
 
-	private Vector3 GetWayPoint(int i)
+	public Vector3 GetWayPoint(int i)
 	{
 		return transform.GetChild(i).position;
 	}
