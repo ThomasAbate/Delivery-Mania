@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8452516433653344950}
   - component: {fileID: 4123998208273494090}
   - component: {fileID: 8195308264745546543}
+  - component: {fileID: 7776142337955237828}
   m_Layer: 0
   m_Name: poignees_casiers
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7776142337955237828
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372247892207555934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -662515190320705980, guid: 4b284d71929f1924496eaf2b3e0cf67a, type: 3}
 --- !u!1 &5726942938919427305
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +109,7 @@ GameObject:
   - component: {fileID: 8287910577305190871}
   - component: {fileID: 3445932377565347442}
   - component: {fileID: 7368928968317359667}
-  - component: {fileID: 8973693535776569155}
+  - component: {fileID: 6225580447792967635}
   m_Layer: 0
   m_Name: block_casiers
   m_TagString: Untagged
@@ -167,7 +182,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8973693535776569155
+--- !u!64 &6225580447792967635
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,7 +241,7 @@ GameObject:
   - component: {fileID: 5661311176999322087}
   - component: {fileID: 5134937808802353662}
   - component: {fileID: 8932271377938779321}
-  - component: {fileID: 7979998818859169816}
+  - component: {fileID: 3923182946213999111}
   m_Layer: 0
   m_Name: polySurface48
   m_TagString: Untagged
@@ -299,7 +314,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7979998818859169816
+--- !u!64 &3923182946213999111
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
