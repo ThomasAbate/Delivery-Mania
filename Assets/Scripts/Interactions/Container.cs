@@ -10,15 +10,12 @@ public class Container : MonoBehaviour
     public BoxColor color;
     private Box boxIn;
     private Box boxOut;
-    private int boxCount = 0;
-
-    [SerializeField] private GameObject textObject;
-    private TextMeshPro counter;
+    
+    private ContainerUI containerUI;
 
     private void Start()
     {
-        counter = textObject.GetComponent<TextMeshPro>();
-        counter.text = "0";
+        containerUI = ContainerUI.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,8 +25,7 @@ public class Container : MonoBehaviour
             boxIn = other.gameObject.GetComponent<Box>();
             if(boxIn.color == color)
             {
-                boxCount++;
-                counter.text = boxCount.ToString();
+                containerUI.AddToCounter(color, 1);
             }
         }
     }
@@ -41,8 +37,8 @@ public class Container : MonoBehaviour
             boxOut = other.gameObject.GetComponent<Box>();
             if (boxOut.color == color)
             {
-                boxCount--;
-                counter.text = boxCount.ToString();
+                containerUI.RemoveFromCounter(color, 1);
+
             }
         }
     }
