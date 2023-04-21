@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class Door : Interactive
 {
@@ -8,6 +9,10 @@ public class Door : Interactive
     [SerializeField] private bool openSide;
     public override void OnInteraction()
     {
+        if (!VictoryTimer.Instance.startGame)
+        {
+            VictoryTimer.Instance.StartTimer();
+        }
         if (!open)
         {
             if(openSide)
