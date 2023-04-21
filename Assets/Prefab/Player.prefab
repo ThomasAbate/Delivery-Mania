@@ -38,7 +38,7 @@ Transform:
   - {fileID: 7628374771171316876}
   - {fileID: 8747434528225437283}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9096167467045128593
 MeshFilter:
@@ -290,7 +290,7 @@ GameObject:
   m_Layer: 0
   m_Name: HoldPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

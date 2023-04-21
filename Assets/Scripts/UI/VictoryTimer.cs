@@ -16,6 +16,7 @@ public class VictoryTimer : MonoBehaviour
     {
         if (Instance) Destroy(this);
         else Instance = this;
+        Time.timeScale = 1;
         startGame = false;
     }
 
@@ -35,7 +36,12 @@ public class VictoryTimer : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 0;
+                if (!GameOver.Instance.isGameOver)
+                {
+                    Time.timeScale = 0;
+                    GameOver.Instance.ActivateGameOverUI();
+                    GameOver.Instance.isGameOver = true;
+                }
             }
         }
         

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LookWithMouse : MonoBehaviour
 {
+    public static LookWithMouse Instance;
+
     const float k_MouseSensitivityMultiplier = 0.01f;
 
     [SerializeField] private PlayerInput playerInput;
@@ -19,6 +21,12 @@ public class LookWithMouse : MonoBehaviour
     [SerializeField][Range(-90.0f, 0)] private float minAngle = -90f;
     [SerializeField][Range(0, 90.0f)] private float maxAngle = 90f;
 
+
+    private void Awake()
+    {
+        if (Instance) Destroy(this);
+        else Instance = this;
+    }
 
     void Start()
     {
@@ -83,5 +91,11 @@ public class LookWithMouse : MonoBehaviour
 
             playerBody.Rotate(Vector3.up * mouseX);
         }
+    }
+
+    public void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
