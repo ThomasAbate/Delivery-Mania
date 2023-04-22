@@ -3,13 +3,12 @@ using UnityEngine;
 public class AIController : MonoBehaviour
 {
     [SerializeField] PatrolPath patrolPath;
+
     [SerializeField] float wayPointTolerance = 1f;
 
 	Vector3 botPosition;
 	int currentWayPointIndex = 0;
-
-
-	AIController aiController;
+	
 	BotController botController;
 
 	private Rigidbody BotRb;

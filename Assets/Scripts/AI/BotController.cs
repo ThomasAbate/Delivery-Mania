@@ -9,9 +9,11 @@ public class BotController : MonoBehaviour
 
 	private void Update()
 	{
-		//path.GetNextIndex(i);
-		//target.position = path.GetWayPoint(i);
-
-		GetComponent<NavMeshAgent>().destination = target.position;
+		/*for (int i = 0; i < 10; i++) //goes from o to 9)
+		{
+			path.GetNextIndex(i);
+			target.position = path.GetWayPoint(i);
+		}
+		GetComponent<NavMeshAgent>().destination = target.position;*/
 	}
 }

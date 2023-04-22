@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PatrolPath : MonoBehaviour
@@ -12,10 +10,9 @@ public class PatrolPath : MonoBehaviour
 		{
 			int j = GetNextIndex(i);
 
+			//To Vizualize The Patrol Path
 			Gizmos.DrawSphere(GetWayPoint(i), gizmoRadius);
 			Gizmos.DrawLine(GetWayPoint(i), GetWayPoint(j));
-
-
 		}
 	}
 
