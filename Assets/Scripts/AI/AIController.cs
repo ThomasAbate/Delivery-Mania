@@ -9,8 +9,6 @@ public class AIController : MonoBehaviour
 	Vector3 botPosition;
 
 	int currentWayPointIndex = 0;
-	
-	//BotController botController;
 
 	public Rigidbody BotRb;
 
@@ -34,8 +32,10 @@ public class AIController : MonoBehaviour
 			{
 				CycleWaypoint();
 			}
+
 			nextPosition = GetCurrentWaypoint();
 		}
+
 		BotMove(nextPosition);
 	}
 
