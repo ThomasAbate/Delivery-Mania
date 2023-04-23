@@ -12,7 +12,7 @@ public class AIController : MonoBehaviour
 	
 	//BotController botController;
 
-	private Rigidbody BotRb;
+	public Rigidbody BotRb;
 
 	public float speed = 4f;
 
