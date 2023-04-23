@@ -3733,7 +3733,6 @@ GameObject:
   - component: {fileID: 535626904}
   - component: {fileID: 535626903}
   - component: {fileID: 535626902}
-  - component: {fileID: 535626907}
   - component: {fileID: 535626906}
   m_Layer: 0
   m_Name: Robot Green
@@ -3750,7 +3749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535626900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7, y: 0, z: 7.61}
+  m_LocalPosition: {x: -4.95, y: 0, z: 7.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3858,20 +3857,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &535626907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535626900}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08060ba868677741a4f68fdd84df8db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  m_ObstacleAvoidanceType: 3
 --- !u!1 &557602940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6770,7 +6756,6 @@ GameObject:
   - component: {fileID: 988598467}
   - component: {fileID: 988598466}
   - component: {fileID: 988598465}
-  - component: {fileID: 988598470}
   - component: {fileID: 988598469}
   m_Layer: 0
   m_Name: Robot Red
@@ -6778,7 +6763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &988598464
 Transform:
   m_ObjectHideFlags: 0
@@ -6787,7 +6772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988598463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.34, y: 0, z: -15.06}
+  m_LocalPosition: {x: -11.42, y: 0, z: -15.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6895,20 +6880,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &988598470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988598463}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08060ba868677741a4f68fdd84df8db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  m_ObstacleAvoidanceType: 3
 --- !u!1 &1002277055
 GameObject:
   m_ObjectHideFlags: 0
@@ -12544,7 +12516,6 @@ GameObject:
   - component: {fileID: 1717071169}
   - component: {fileID: 1717071168}
   - component: {fileID: 1717071167}
-  - component: {fileID: 1717071172}
   - component: {fileID: 1717071171}
   m_Layer: 0
   m_Name: Robot Yellow
@@ -12552,7 +12523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1717071166
 Transform:
   m_ObjectHideFlags: 0
@@ -12561,7 +12532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717071165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.53, y: 0, z: -11.91}
+  m_LocalPosition: {x: 7.6, y: 0, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12669,20 +12640,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &1717071172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717071165}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08060ba868677741a4f68fdd84df8db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  m_ObstacleAvoidanceType: 3
 --- !u!1001 &1720919402
 PrefabInstance:
   m_ObjectHideFlags: 0

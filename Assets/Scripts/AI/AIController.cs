@@ -7,18 +7,22 @@ public class AIController : MonoBehaviour
     [SerializeField] float wayPointTolerance = 1f;
 
 	Vector3 botPosition;
+
 	int currentWayPointIndex = 0;
 	
-	BotController botController;
+	//BotController botController;
 
 	private Rigidbody BotRb;
 
 	public float speed = 4f;
 
-	//private Vector2 direction;
-
 	[SerializeField] private float smoothTime = 0.05f;
 	private Vector3 Velocity;
+
+	private void Update()
+	{
+		PatrolBehaviour();
+	}
 
 	public void PatrolBehaviour()
 	{
@@ -38,6 +42,7 @@ public class AIController : MonoBehaviour
 	private bool AtWayPoint()
 	{
 		float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
+
 		return distanceToWaypoint < wayPointTolerance;
 	}
 	
