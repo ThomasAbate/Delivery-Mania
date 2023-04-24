@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 8258170379961975734}
   - component: {fileID: 3200251838902048658}
   - component: {fileID: 9049005379477640010}
-  - component: {fileID: 1460222023828200938}
   m_Layer: 0
   m_Name: pCylinder18
   m_TagString: Untagged
@@ -167,20 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1460222023828200938
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2533043168958734628}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3675369248753904948, guid: fc9a8e2a9f6545044aab8722b8659561, type: 3}
 --- !u!1 &3470133682081740253
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5515912569209390546}
+  - component: {fileID: 3621675035343278596}
   m_Layer: 0
   m_Name: petite etagere
   m_TagString: Untagged
@@ -298,3 +284,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3621675035343278596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5172285135615614824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 400, z: 113.4}
+  m_Center: {x: 0, y: 0, z: 0}
