@@ -146,9 +146,12 @@ MonoBehaviour:
   holdArea: {fileID: 1443112241522567053}
   cameraPos: {fileID: 7628374771171316876}
   distanceInteraction: 5
-  layerMask:
+  interactiveMask:
     serializedVersion: 2
     m_Bits: 64
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 187
   visualDebugging: 1
   color: {r: 0.75, g: 0.2, b: 0.2, a: 0.75}
   lineWidth: 6
@@ -442,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 266766637}
   mouseSensitivity: 100
-  gamepadSensitivity: 100
+  gamepadSensitivity: 50
   playerBody: {fileID: 7946185954301621850}
   invertYAxis: 0
   minAngle: -90

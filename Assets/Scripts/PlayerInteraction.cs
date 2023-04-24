@@ -40,8 +40,10 @@ public class PlayerInteraction : MonoBehaviour
 
     [SerializeField] private Transform cameraPos;
     private RaycastHit hit;
+    private RaycastHit hitObstacle;
     [Range(1f, 50f)][SerializeField] private float distanceInteraction = 5f;
-    [SerializeField] private LayerMask layerMask = ~0;
+    [SerializeField] private LayerMask interactiveMask = ~0;
+    [SerializeField] private LayerMask obstacleMask = ~0;
 
     #endregion
 
@@ -85,12 +87,22 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (heldObject == null)
         {
-            if (Physics.Raycast(cameraPos.position, cameraPos.transform.forward, out hit, distanceInteraction, layerMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(cameraPos.position, cameraPos.transform.forward, out hit, distanceInteraction, interactiveMask, QueryTriggerInteraction.Ignore))
             {
-                if (possibleInteraction == null)
+                float distObject = Vector3.Distance(hit.transform.position, cameraPos.transform.position);
+                if (!Physics.Raycast(cameraPos.position, cameraPos.transform.forward, out hitObstacle, distObject, obstacleMask, QueryTriggerInteraction.Ignore))
                 {
-                    SetInteractive();
-                    SetInteractiveUI();
+                    if (possibleInteraction == null)
+                    {
+                        SetInteractive();
+                        SetInteractiveUI();
+                    }
+                }
+                else
+                {
+                    possibleInteraction = null;
+                    interactionType = InteractionType.None;
+                    DisableInteractiveUI();
                 }
             }
             else
