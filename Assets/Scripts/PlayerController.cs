@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour
 
     void CheckSprint()
     {
+        if(movement.x < 0.05f && movement.y < 0.05f)
+        {
+            isSprinting = false;
+        }
         if(isSprinting)
         {
             speedValue = speed + sprint;
@@ -126,11 +130,14 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            isSprinting = true;
-        }
-        if (context.canceled)
-        {
-            isSprinting = false;
+            if(isSprinting)
+            {
+                isSprinting = false;
+            }
+            else
+            {
+                isSprinting = true;
+            }
         }
     }
 
