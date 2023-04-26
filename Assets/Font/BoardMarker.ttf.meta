@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 43c6358743c91534784fe37b3a334f5e
+guid: 3539274c46b92204bafa38e568ceb8d2
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Oh Okey
+  - BoardMarker
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
