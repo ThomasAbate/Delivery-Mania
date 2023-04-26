@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 9003103750006365972}
   - component: {fileID: 6563297584462244830}
   - component: {fileID: 7232106105560287693}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Moyen carton Deco
-  m_TagString: Pickup
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7b40a76cb03c2d45aaf5f1337506a3f, type: 2}
+  - {fileID: 2100000, guid: 805c88f97925f774d8b4689d53a43876, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

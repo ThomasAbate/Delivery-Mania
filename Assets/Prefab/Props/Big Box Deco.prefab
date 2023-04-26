@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 9031011658595595540}
   - component: {fileID: 9031011658595595547}
   - component: {fileID: 5326015301510837181}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Big Box Deco
-  m_TagString: Pickup
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 77b750780ac323a49b8f7494b86d1e2d, type: 2}
+  - {fileID: 2100000, guid: 805c88f97925f774d8b4689d53a43876, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
