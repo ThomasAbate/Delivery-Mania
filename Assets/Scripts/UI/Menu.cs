@@ -17,7 +17,7 @@ public class Menu : MonoBehaviour
 
 	public void StartGame() //new game (tutorial lvl)
     {
-        SceneManager.LoadScene("Loris Test");
+        SceneManager.LoadScene("Tuto");
     }
 
     public void Continue() //from the last save

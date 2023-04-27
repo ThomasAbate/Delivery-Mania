@@ -2,10 +2,13 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class LookWithMouse : MonoBehaviour
 {
     public static LookWithMouse Instance;
+
+    [HideInInspector] public bool isUiActive;
 
     const float k_MouseSensitivityMultiplier = 0.01f;
     const float k_GamepadSensitivityMultiplier = 0.01f;
@@ -33,6 +36,7 @@ public class LookWithMouse : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        isUiActive = false;
     }
 
 
@@ -47,7 +51,10 @@ public class LookWithMouse : MonoBehaviour
             var delta = Mouse.current.delta.ReadValue() / 15.0f;
             mouseX += delta.x;
             mouseY += delta.y;
-            lockPressed = Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame;
+            if(!isUiActive)
+            {
+                lockPressed = Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame;
+            }
         }
         if (Gamepad.current != null)
         {
