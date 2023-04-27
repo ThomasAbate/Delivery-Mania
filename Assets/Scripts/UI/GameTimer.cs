@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class VictoryTimer : MonoBehaviour
+public class GameTimer : MonoBehaviour
 {
-    public static VictoryTimer Instance;
+    public static GameTimer Instance;
 
     private float timeRemaining;
     [HideInInspector] public bool startGame;
@@ -17,11 +17,11 @@ public class VictoryTimer : MonoBehaviour
         else Instance = this;
         Time.timeScale = 1;
         startGame = false;
-        timeRemaining = LevelManager.Instance.level.time;
     }
 
     private void Start()
     {
+        timeRemaining = LevelManager.Instance.level.time;
         timerText.enabled = false;
     }
 
@@ -44,12 +44,15 @@ public class VictoryTimer : MonoBehaviour
                 }
             }
         }
-        
     }
 
     public void StartTimer()
     {
-        startGame = true;
-        timerText.enabled = true;
+        if (LevelManager.Instance.level.time == 0) return;
+        else
+        {
+            timerText.enabled = true;
+            startGame = true;
+        }
     }
 }

@@ -9,9 +9,9 @@ public class Door : Interactive
     [SerializeField] private bool openSide;
     public override void OnInteraction()
     {
-        if (!VictoryTimer.Instance.startGame)
+        if (!GameTimer.Instance.startGame)
         {
-            VictoryTimer.Instance.StartTimer();
+            GameTimer.Instance.StartTimer();
         }
         if (!open)
         {

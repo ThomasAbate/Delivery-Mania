@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
@@ -21,7 +24,13 @@ public class GameOver : MonoBehaviour
     public void ActivateGameOverUI()
     {
         gameOverUI.SetActive(true);
-        LookWithMouse.Instance.UnlockMouse();
+        EventSystem.current.SetSelectedGameObject(gameOverUI.transform.GetChild(0).gameObject);
+        if (LookWithMouse.Instance.playerInput.currentControlScheme == "KeyboardMouse")
+        {
+            LookWithMouse.Instance.UnlockMouse();
+        }
+        LookWithMouse.Instance.gamepadSensitivity = 0;
+        LookWithMouse.Instance.mouseSensitivity = 0;
     }
 
     public void Retry()

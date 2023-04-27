@@ -107,9 +107,9 @@ public class Score : MonoBehaviour
 
     private void CheckWin()
     {
-        if(redCount == LevelManager.Instance.level.redAmount &&
-           yellowCount == LevelManager.Instance.level.yellowAmount &&
-           greenCount == LevelManager.Instance.level.greenAmount)
+        if(redCount >= LevelManager.Instance.level.redAmount &&
+           yellowCount >= LevelManager.Instance.level.yellowAmount &&
+           greenCount >= LevelManager.Instance.level.greenAmount)
         {
             LevelManager.Instance.LoadNextLevel();
         }

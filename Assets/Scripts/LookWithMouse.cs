@@ -10,7 +10,7 @@ public class LookWithMouse : MonoBehaviour
     const float k_MouseSensitivityMultiplier = 0.01f;
     const float k_GamepadSensitivityMultiplier = 0.01f;
 
-    [SerializeField] private PlayerInput playerInput;
+    public PlayerInput playerInput;
     public float mouseSensitivity = 100f;
     public float gamepadSensitivity = 100f;
 
