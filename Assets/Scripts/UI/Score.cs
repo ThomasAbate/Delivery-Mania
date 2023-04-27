@@ -25,9 +25,9 @@ public class Score : MonoBehaviour
 
     private void Start()
     {
-        redCounter.text = redCount.ToString() + " / " + LevelManager.Instance.level.redAmount;
-        yellowCounter.text = yellowCount.ToString() + " / " + LevelManager.Instance.level.yellowAmount;
-        greenCounter.text = greenCount.ToString() + " / " + LevelManager.Instance.level.greenAmount;
+        redCounter.text = redCount.ToString();
+        yellowCounter.text = yellowCount.ToString();
+        greenCounter.text = greenCount.ToString();
     }
 
     public void SetCounter(BoxColor color, int number)
@@ -94,13 +94,13 @@ public class Score : MonoBehaviour
         switch (color)
         {
             case BoxColor.Red:
-                redCounter.text = redCount.ToString() + " / " + LevelManager.Instance.level.redAmount;
+                redCounter.text = redCount.ToString();
                 break;
             case BoxColor.Yellow:
-                yellowCounter.text = yellowCount.ToString() + " / " + LevelManager.Instance.level.yellowAmount;
+                yellowCounter.text = yellowCount.ToString();
                 break;
             case BoxColor.Green:
-                greenCounter.text = greenCount.ToString() + " / " + LevelManager.Instance.level.greenAmount;
+                greenCounter.text = greenCount.ToString();
                 break;
         }
     }

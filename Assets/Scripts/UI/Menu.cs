@@ -17,7 +17,7 @@ public class Menu : MonoBehaviour
 
 	public void StartGame() //new game (tutorial lvl)
     {
-        SceneManager.LoadScene("Tuto");
+        SceneManager.LoadScene("Intro");
     }
 
     public void Continue() //from the last save
