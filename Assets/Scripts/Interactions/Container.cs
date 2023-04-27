@@ -11,11 +11,11 @@ public class Container : MonoBehaviour
     private Box boxIn;
     private Box boxOut;
     
-    private ContainerUI containerUI;
+    private Score score;
 
     private void Start()
     {
-        containerUI = ContainerUI.Instance;
+        score = Score.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +25,7 @@ public class Container : MonoBehaviour
             boxIn = other.gameObject.GetComponent<Box>();
             if(boxIn.color == color)
             {
-                containerUI.AddToCounter(color, 1);
+                score.AddToCounter(color, 1);
             }
         }
     }
@@ -37,7 +37,7 @@ public class Container : MonoBehaviour
             boxOut = other.gameObject.GetComponent<Box>();
             if (boxOut.color == color)
             {
-                containerUI.RemoveFromCounter(color, 1);
+                score.RemoveFromCounter(color, 1);
 
             }
         }

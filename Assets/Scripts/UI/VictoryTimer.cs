@@ -7,9 +7,8 @@ public class VictoryTimer : MonoBehaviour
 {
     public static VictoryTimer Instance;
 
-    [SerializeField] private float timeRemaining;
+    private float timeRemaining;
     [HideInInspector] public bool startGame;
-
     [SerializeField] private TextMeshProUGUI timerText;
 
     private void Awake()
@@ -18,6 +17,7 @@ public class VictoryTimer : MonoBehaviour
         else Instance = this;
         Time.timeScale = 1;
         startGame = false;
+        timeRemaining = LevelManager.Instance.level.time;
     }
 
     private void Start()

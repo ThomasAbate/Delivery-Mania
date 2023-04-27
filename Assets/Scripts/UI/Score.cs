@@ -5,17 +5,17 @@ using TMPro;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
-public class ContainerUI : MonoBehaviour
+public class Score : MonoBehaviour
 {
-    public static ContainerUI Instance;
+    public static Score Instance;
 
     [SerializeField] private TextMeshProUGUI redCounter;
     [SerializeField] private TextMeshProUGUI yellowCounter;
     [SerializeField] private TextMeshProUGUI greenCounter;
 
-    private int redCount = 0;
-    private int yellowCount = 0;
-    private int greenCount = 0;
+    [HideInInspector] public int redCount = 0;
+    [HideInInspector] public int yellowCount = 0;
+    [HideInInspector] public int greenCount = 0;
 
     private void Awake()
     {
@@ -25,9 +25,9 @@ public class ContainerUI : MonoBehaviour
 
     private void Start()
     {
-        redCounter.text = redCount.ToString();
-        greenCounter.text = greenCount.ToString();
-        yellowCounter.text = yellowCount.ToString();
+        redCounter.text = redCount.ToString() + " / " + LevelManager.Instance.level.redAmount;
+        yellowCounter.text = yellowCount.ToString() + " / " + LevelManager.Instance.level.yellowAmount;
+        greenCounter.text = greenCount.ToString() + " / " + LevelManager.Instance.level.greenAmount;
     }
 
     public void SetCounter(BoxColor color, int number)
@@ -67,6 +67,7 @@ public class ContainerUI : MonoBehaviour
                 SetCounterText(BoxColor.Green);
                 break;
         }
+        CheckWin();
     }
 
     public void RemoveFromCounter(BoxColor color, int number)
@@ -93,14 +94,24 @@ public class ContainerUI : MonoBehaviour
         switch (color)
         {
             case BoxColor.Red:
-                redCounter.text = redCount.ToString();
+                redCounter.text = redCount.ToString() + " / " + LevelManager.Instance.level.redAmount;
                 break;
             case BoxColor.Yellow:
-                yellowCounter.text = yellowCount.ToString();
+                yellowCounter.text = yellowCount.ToString() + " / " + LevelManager.Instance.level.yellowAmount;
                 break;
             case BoxColor.Green:
-                greenCounter.text = greenCount.ToString();
+                greenCounter.text = greenCount.ToString() + " / " + LevelManager.Instance.level.greenAmount;
                 break;
+        }
+    }
+
+    private void CheckWin()
+    {
+        if(redCount == LevelManager.Instance.level.redAmount &&
+           yellowCount == LevelManager.Instance.level.yellowAmount &&
+           greenCount == LevelManager.Instance.level.greenAmount)
+        {
+            LevelManager.Instance.LoadNextLevel();
         }
     }
 }
