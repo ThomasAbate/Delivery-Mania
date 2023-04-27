@@ -38,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 107540710824029215}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8220993444081629847
 MeshFilter:
@@ -187,8 +187,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 3
-  MaxDistance: 6
+  MinDistance: 1
+  MaxDistance: 1.2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -223,7 +223,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
