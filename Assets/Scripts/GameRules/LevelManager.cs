@@ -22,7 +22,6 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene+1);
-        Debug.LogWarning("Last Level");
+        SceneManager.LoadScene(currentScene + 1);
     }
 }

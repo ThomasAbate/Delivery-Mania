@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     private CharacterController controller;
+    public bool lockMovements;
 
     [Header("Movement Settings")]
     [Space]
@@ -42,20 +43,23 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float x = movement.x;
-        float z = movement.y;
+        if(!lockMovements)
+        {
+            float x = movement.x;
+            float z = movement.y;
 
-        CheckSprint();
+            CheckSprint();
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        currentMoveVelocity = Vector3.SmoothDamp(
-            currentMoveVelocity,
-            move * speedValue,
-            ref moveDampVelocity,
-            moveSmoothTime);
-        controller.Move(currentMoveVelocity * Time.deltaTime);
+            Vector3 move = transform.right * x + transform.forward * z;
+            currentMoveVelocity = Vector3.SmoothDamp(
+                currentMoveVelocity,
+                move * speedValue,
+                ref moveDampVelocity,
+                moveSmoothTime);
+            controller.Move(currentMoveVelocity * Time.deltaTime);
 
-        CheckJump();
+            CheckJump();
+        }
     }
 
     void CheckSprint()

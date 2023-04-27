@@ -23,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     private InteractionType interactionType;
     private GameObject possibleInteraction;
     private Interactive interactive;
+    public bool lockInteractions;
 
     #endregion
 
@@ -79,7 +80,10 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (ctx.started)
         {
-            Interact();
+            if(!lockInteractions)
+            {
+                Interact();
+            }
         }
     }
 

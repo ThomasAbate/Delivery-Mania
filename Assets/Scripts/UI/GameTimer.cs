@@ -9,7 +9,7 @@ public class GameTimer : MonoBehaviour
 
     private float timeRemaining;
     [HideInInspector] public bool startGame;
-    [SerializeField] private TextMeshProUGUI timerText;
+    public TextMeshProUGUI timerText;
 
     private void Awake()
     {
@@ -38,7 +38,6 @@ public class GameTimer : MonoBehaviour
             {
                 if (!GameOver.Instance.isGameOver)
                 {
-                    Time.timeScale = 0;
                     GameOver.Instance.ActivateGameOverUI();
                     GameOver.Instance.isGameOver = true;
                 }
@@ -54,5 +53,11 @@ public class GameTimer : MonoBehaviour
             timerText.enabled = true;
             startGame = true;
         }
+    }
+
+    public void CancelTimer()
+    {
+        startGame = false;
+        timerText.text = "";
     }
 }

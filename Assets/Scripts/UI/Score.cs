@@ -111,7 +111,7 @@ public class Score : MonoBehaviour
            yellowCount >= LevelManager.Instance.level.yellowAmount &&
            greenCount >= LevelManager.Instance.level.greenAmount)
         {
-            LevelManager.Instance.LoadNextLevel();
+            WinSystem.Instance.ShowVictoryUI();
         }
     }
 }

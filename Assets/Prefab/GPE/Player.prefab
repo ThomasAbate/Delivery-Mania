@@ -120,8 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3137a30b623519d4e95a03d91bf7bd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
-  sprint: 4.5
+  lockMovements: 0
+  speed: 6
+  sprint: 2.5
   moveSmoothTime: 0.2
   jumpSpeed: 5
   jumpHoldTime: 0.1
@@ -443,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd89d9bb72a09e41b52c39b6d3eefc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUiActive: 0
   playerInput: {fileID: 266766637}
   mouseSensitivity: 100
   gamepadSensitivity: 50

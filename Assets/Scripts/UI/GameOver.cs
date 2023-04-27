@@ -32,6 +32,8 @@ public class GameOver : MonoBehaviour
         }
         LookWithMouse.Instance.gamepadSensitivity = 0;
         LookWithMouse.Instance.mouseSensitivity = 0;
+        PlayerController.Instance.lockMovements = true;
+        PlayerInteraction.Instance.lockInteractions = true;
     }
 
     public void Retry()

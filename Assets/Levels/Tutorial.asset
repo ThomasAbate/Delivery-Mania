@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c18c1be97093984e9c186b3f24cd83f, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: 
-  levelNumber: 0
   time: 0
   yellowAmount: 1
   greenAmount: 1
