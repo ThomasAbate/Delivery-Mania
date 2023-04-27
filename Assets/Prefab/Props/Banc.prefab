@@ -337,7 +337,6 @@ GameObject:
   - component: {fileID: 430881549533589796}
   - component: {fileID: 8439507361815288222}
   - component: {fileID: 8665663634996019758}
-  - component: {fileID: 2714695160325586388}
   m_Layer: 0
   m_Name: crochets
   m_TagString: Untagged
@@ -410,20 +409,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2714695160325586388
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4310595990822168439}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3082991460006082987, guid: 67b5a67b9b047ef4fa878f6746410354, type: 3}
 --- !u!1 &4638923957416471634
 GameObject:
   m_ObjectHideFlags: 0
