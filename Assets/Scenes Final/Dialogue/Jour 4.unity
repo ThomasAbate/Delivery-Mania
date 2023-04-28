@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 393123641}
   - component: {fileID: 393123640}
   - component: {fileID: 393123644}
+  - component: {fileID: 393123645}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -809,6 +810,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &393123645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393123639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71378cb72c0c7054d8cb665d86ebf019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &453735777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1772,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3

@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Dialogue_to_lvl : MonoBehaviour
 {
-    public void NetxScean()
+    public void NextScean()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene + 1);
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

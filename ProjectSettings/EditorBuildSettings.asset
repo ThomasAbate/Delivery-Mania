@@ -17,4 +17,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes Final/GamePlay/Level 1.unity
     guid: c83ee2a6f4daae64dae4482c3557c0cf
+  - enabled: 1
+    path: Assets/Scenes Final/GamePlay/Level 2.unity
+    guid: 3c3d1a1e724249743ac2a1e63533ebf2
+  - enabled: 1
+    path: Assets/Scenes Final/Dialogue/Jour 3.unity
+    guid: 6e496977636e4c446ba271918d2a1f06
+  - enabled: 1
+    path: Assets/Scenes Final/GamePlay/Level 3.unity
+    guid: e812b4251e04c2641b7c8756de671d18
+  - enabled: 1
+    path: Assets/Scenes Final/Dialogue/Jour 4.unity
+    guid: 707896301ad4bfb4cbaae31fea429932
+  - enabled: 1
+    path: Assets/Scenes Final/GamePlay/Level 4.unity
+    guid: 365862e194d76174c906a948ab6fd2a2
+  - enabled: 1
+    path: Assets/Scenes Final/Dialogue/Jour 5.unity
+    guid: 1e1c7937329b56f4c9391adc5d7cd82a
+  - enabled: 1
+    path: Assets/Scenes Final/GamePlay/Level 5.unity
+    guid: 61c6e6038955d9b4c8b458ff8ce175b8
+  - enabled: 1
+    path: Assets/Scenes Final/Dialogue/Fin.unity
+    guid: 21ce5d6288121f64c8c8cf4d3d09e10a
   m_configObjects: {}
