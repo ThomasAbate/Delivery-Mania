@@ -5699,7 +5699,11 @@ PrefabInstance:
       value: porte garage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2320744312659103043, guid: 2dcbd3693b146224ea8946e8154f68d7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1747380344}
   m_SourcePrefab: {fileID: 100100000, guid: 2dcbd3693b146224ea8946e8154f68d7, type: 3}
 --- !u!1001 &745577217
 PrefabInstance:
@@ -13748,6 +13752,98 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942371976531056183, guid: c7ed9746ea353f14eb729218790ae09a,
     type: 3}
   m_PrefabInstance: {fileID: 1744548837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1747380343
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 1713524079}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.345652
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 310.04495
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00033197447
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+        type: 3}
+      propertyPath: m_Name
+      value: porte_garage
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b, type: 3}
+--- !u!4 &1747380344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0895dfd0ab5d3b14aa315ed0f5efd35b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1747380343}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1749666113
 PrefabInstance:
