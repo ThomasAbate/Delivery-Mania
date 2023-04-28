@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Score : MonoBehaviour
 {

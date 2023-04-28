@@ -1191,8 +1191,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Vous incarne un jeune employ\xE9, \xE0 ZIP, un entropote de stokage de
-    colis. \n\nJusqu'au jour o\xF9 il casse un transpalette important. En cons\xE9quence,
+  m_text: "Vous incarne un jeune employ\xE9, \xE0 ZIP, un entrep\xF4t  de stokage
+    de colis. \n\nJusqu'au jour o\xF9 il casse un transpalette important. En cons\xE9quence,
     il est convoqu\xE9 chez son sup\xE9rieur, qui veut absolument le virer de l'entreprise.
     Mais il ne veut pas perdre son emploi, alors il cherche un arrangement pour \xE9viter
     de se retrouver \xE0 la rue. \n\nLe sup\xE9rieur lui propose de lui faire signer
