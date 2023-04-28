@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 7475589717008024567}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &4770357723487179483
 MeshCollider:
@@ -421,7 +421,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 25e064b13a33593418380f9caf19fb79, type: 2}
+      objectReference: {fileID: 2100000, guid: 60b59fe30d521a149a955eb10c6b6dad, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a130af9d6f8097a4bafa32ba7352dc93,

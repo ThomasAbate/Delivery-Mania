@@ -19,8 +19,7 @@ public class ParticleChut : MonoBehaviour
         {
             VFX.SetActive(true);
             SFX.enabled= true;
-            AudioClip clip = GetRandomClip();
-            SFX.PlayOneShot(clip);
+            SFX.PlayOneShot(Boxfall);
         }
     }
 
@@ -31,12 +30,5 @@ public class ParticleChut : MonoBehaviour
             VFX.SetActive(false);
             SFX.enabled= false;
         }
-    }
-
-    private AudioClip GetRandomClip()
-    {
-        SFX.volume = Random.Range(0.8f, 1f);
-        SFX.pitch = Random.Range(0.95f, 1.05f);
-        return Boxfall; 
     }
 }

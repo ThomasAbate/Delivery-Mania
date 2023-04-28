@@ -7,11 +7,19 @@ public class Door : Interactive
 {
     private bool open;
     [SerializeField] private bool openSide;
+
+    AudioSource Start;
+
+    private void Awake()
+    {
+        Start= GetComponent<AudioSource>();
+    }
     public override void OnInteraction()
     {
         if (!GameTimer.Instance.startGame)
         {
             GameTimer.Instance.StartTimer();
+            Start.enabled= true;
         }
         if (!open)
         {

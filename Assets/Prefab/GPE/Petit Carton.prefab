@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 788685481355428618}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4092207675629218966
 MonoBehaviour:
@@ -128,7 +128,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -426,7 +426,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 25e064b13a33593418380f9caf19fb79, type: 2}
+      objectReference: {fileID: 2100000, guid: 0bb0613bce2bafa4190d5ed8b8fb38a6, type: 2}
     - target: {fileID: 8217361368461143566, guid: 3641b73aa06b6a1459e09b76d47f920c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

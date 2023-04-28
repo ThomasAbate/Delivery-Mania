@@ -11,10 +11,14 @@ public class Container : MonoBehaviour
     private Box boxOut;
     
     private Score score;
+    private AudioSource FeedBackPoint;
+    public AudioClip Addpoint;
 
     private void Start()
     {
         score = Score.Instance;
+        FeedBackPoint= GetComponent<AudioSource>();
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +29,7 @@ public class Container : MonoBehaviour
             if(boxIn.color == color)
             {
                 score.AddToCounter(color, 1);
+                FeedBackPoint.PlayOneShot(Addpoint);
             }
         }
     }

@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes Final/GamePlay/Tuto.unity
     guid: c522cef16821d214bbaec5b18ce6ae22
   - enabled: 1
-    path: Assets/Scenes Final/GamePlay/Level1.unity
-    guid: 2b03b174db440b545b763d9fe334f4e9
+    path: Assets/Scenes Final/GamePlay/Level 1.unity
+    guid: c83ee2a6f4daae64dae4482c3557c0cf
   m_configObjects: {}

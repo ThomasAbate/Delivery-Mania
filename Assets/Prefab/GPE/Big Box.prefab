@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 4285734487998749939}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1609126399803672366
 MeshCollider:
@@ -128,7 +128,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 60b7dc322c46eca4b9db1371aaa0a4f3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -298,7 +298,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 25e064b13a33593418380f9caf19fb79, type: 2}
+      objectReference: {fileID: 2100000, guid: 059b4e36069208d44b0b0e73e0c48f3a, type: 2}
     - target: {fileID: 3288437010358500058, guid: c5ce8856c3ba9b1449c04af48e8d4d34,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
