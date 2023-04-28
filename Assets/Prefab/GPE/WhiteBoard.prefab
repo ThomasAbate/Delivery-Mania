@@ -100,7 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Grend Box :  X'
+  m_text: 'Green Box :  X'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df024483aa67f7f42aa4795a09bf8642, type: 2}
   m_sharedMaterial: {fileID: -94598620249158142, guid: df024483aa67f7f42aa4795a09bf8642,
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 7463843714694922280}
   - component: {fileID: 7463843714694922281}
   m_Layer: 0
-  m_Name: 'Your contrat :'
+  m_Name: 'Your contract :'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Your Contrat :'
+  m_text: 'Your Contract :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df024483aa67f7f42aa4795a09bf8642, type: 2}
   m_sharedMaterial: {fileID: -94598620249158142, guid: df024483aa67f7f42aa4795a09bf8642,
