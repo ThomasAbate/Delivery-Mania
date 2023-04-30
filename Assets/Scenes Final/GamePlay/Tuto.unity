@@ -16829,10 +16829,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4989439139933745064, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989439139933745064, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989439139933745064, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -110.73825
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054654571801167769, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054654571801167769, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7253954932300246921, guid: e90bce838c136ac47835d50a939d1cde,
         type: 3}
       propertyPath: m_Name
       value: GameSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509581505819658118, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509581505819658118, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
