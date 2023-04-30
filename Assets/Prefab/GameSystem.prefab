@@ -31,7 +31,7 @@ Transform:
   - {fileID: 6472159378394643881}
   - {fileID: 556404450270789920}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6472159377263375856
 PrefabInstance:
@@ -105,6 +105,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2085086224868006488, guid: 74d19053ca0b4b6469affd58dc967b4f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 2085086224868006488, guid: 74d19053ca0b4b6469affd58dc967b4f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 2085086224868006488, guid: 74d19053ca0b4b6469affd58dc967b4f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -110.73825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443461384734667382, guid: 74d19053ca0b4b6469affd58dc967b4f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443461384734667382, guid: 74d19053ca0b4b6469affd58dc967b4f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050583644345234025, guid: 74d19053ca0b4b6469affd58dc967b4f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39.2
       objectReference: {fileID: 0}
     - target: {fileID: 6732123802867933006, guid: 74d19053ca0b4b6469affd58dc967b4f,
         type: 3}
