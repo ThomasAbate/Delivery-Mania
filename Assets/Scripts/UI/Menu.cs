@@ -1,10 +1,16 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject Buttons;
+	public new AudioSource audio; //musica !!
+	public Slider musicSlider;
+
+	public Slider sensibilitySlider;
+
+	public GameObject Buttons;
     public GameObject OptionsWindow;
     public GameObject ControlsWindow;
 
@@ -14,6 +20,9 @@ public class Menu : MonoBehaviour
 	{
 		Buttons.SetActive(true);
         OptionsWindow.SetActive(false);
+        ControlsWindow.SetActive(false);
+
+        audio.volume = 1.0f;
 	}
 
 	public void StartGame() //new game (tutorial lvl)
@@ -27,21 +36,40 @@ public class Menu : MonoBehaviour
 
         SceneManager.LoadScene(saveSystem._lvl);
     }
+	public void ExitGame() //close App
+	{
+		Application.Quit();
+	}
 
-    public void Options() //from menu to options
+    /// Options Window
+	public void Options() //from menu to options
     {
 		Buttons.SetActive(false); //to make sure you can't click them while in the options menu
 		OptionsWindow.SetActive(true); //options menu
     }
-    public void Back() //from options back to the main menu
+
+	public void FullScreen()
+	{
+        Screen.fullScreen = true;
+	}
+
+    public void VolumeSlider(float Volume)
+    {
+        Volume = musicSlider.value;
+
+        audio.volume.Equals(Volume);
+        audio.volume = Volume;
+	}
+
+    public void SensibilitySlider()
+    {
+
+    }
+
+	public void Back() //from options back to the main menu
     {
         OptionsWindow.SetActive(false);
         Buttons.SetActive(true);
-    }
-
-    public void ExitGame() //close App
-    {
-        Application.Quit();
     }
 
     ///Controls Window
