@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public GameObject Buttons;
-    public GameObject SettingsWindow;
+    public GameObject OptionsWindow;
+    public GameObject ControlsWindow;
 
     public SaveSystem saveSystem;
 
 	private void Start() //to make sure there is no problem on start
 	{
 		Buttons.SetActive(true);
-        SettingsWindow.SetActive(false);
+        OptionsWindow.SetActive(false);
 	}
 
 	public void StartGame() //new game (tutorial lvl)
@@ -29,12 +30,12 @@ public class Menu : MonoBehaviour
 
     public void Options() //from menu to options
     {
-        SettingsWindow.SetActive(true); //options menu
-        Buttons.SetActive(false); //to make sure you can't click them while in the options menu
+		Buttons.SetActive(false); //to make sure you can't click them while in the options menu
+		OptionsWindow.SetActive(true); //options menu
     }
     public void Back() //from options back to the main menu
     {
-        SettingsWindow.SetActive(false);
+        OptionsWindow.SetActive(false);
         Buttons.SetActive(true);
     }
 
@@ -42,4 +43,17 @@ public class Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    ///Controls Window
+    public void Controls()
+    {
+		OptionsWindow.SetActive(false);
+		ControlsWindow.SetActive(true); //controls menu
+	}
+
+	public void ControlsBack()//from controls to options
+    {
+        ControlsWindow.SetActive(false);
+		OptionsWindow.SetActive(true);
+	}
 }
