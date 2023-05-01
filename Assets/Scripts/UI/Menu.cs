@@ -21,8 +21,6 @@ public class Menu : MonoBehaviour
 		Buttons.SetActive(true);
         OptionsWindow.SetActive(false);
         ControlsWindow.SetActive(false);
-
-        audio.volume = 1.0f;
 	}
 
 	public void StartGame() //new game (tutorial lvl)
