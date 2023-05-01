@@ -14,7 +14,7 @@ public class AIController : MonoBehaviour
 
 	public float speed = 4f;
 
-	[SerializeField] private float smoothTime = 0.05f;
+	[SerializeField] private float smoothTime = 0.5f;
 	private Vector3 Velocity;
 
 	private void Update()
@@ -58,10 +58,10 @@ public class AIController : MonoBehaviour
 
 	public void BotMove(Vector3 nextPosition)
 	{
-		transform.forward = nextPosition;
-
 		BotRb.MovePosition(Vector3.MoveTowards(transform.position, nextPosition, speed * Time.fixedDeltaTime));
 
 		transform.forward = Vector3.SmoothDamp(transform.forward, nextPosition, ref Velocity, smoothTime);
+
+		transform.forward = nextPosition;
 	}
 }
