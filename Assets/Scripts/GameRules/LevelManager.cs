@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     public Level level;
 
+    public SaveSystem saveSystem;
+
     private void Awake()
     {
         if (Instance) Destroy(this);
@@ -21,7 +23,10 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene + 1);
-    }
+		int currentScene = SceneManager.GetActiveScene().buildIndex;
+
+		SaveSystem.instance.Save(currentScene);
+
+		SceneManager.LoadScene(currentScene + 1);
+	}
 }

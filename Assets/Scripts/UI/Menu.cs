@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
     public GameObject Buttons;
     public GameObject SettingsWindow;
 
-    public JsonUtilSave saveSystem;
+    public SaveSystem saveSystem;
 
 	private void Start() //to make sure there is no problem on start
 	{
@@ -22,7 +22,7 @@ public class Menu : MonoBehaviour
 
     public void Continue() //from the last save
     {
-        saveSystem.Loadju();
+        saveSystem.Load();
 
         SceneManager.LoadScene(saveSystem._lvl);
     }

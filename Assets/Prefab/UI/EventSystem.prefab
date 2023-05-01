@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4355313199967516046}
   - component: {fileID: 4355313199967516035}
   - component: {fileID: 4355313199967516032}
+  - component: {fileID: 4141976602477883509}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: 9545b5c7e863a374e9b6b7d906efe8fe, type: 2}
+  saveSystem: {fileID: 4141976602477883509}
 --- !u!114 &4355313199967516046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   victoryUI: {fileID: 0}
+  textMeshPro: {fileID: 0}
+  tutorialVictoryText: 
+  victoryText: 
 --- !u!114 &4355313199967516032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +155,16 @@ MonoBehaviour:
   redCount: 0
   yellowCount: 0
   greenCount: 0
+--- !u!114 &4141976602477883509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355313199967516042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a62ea4c2c33a47b6d755aca94a542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lvl: 0
