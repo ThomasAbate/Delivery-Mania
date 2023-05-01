@@ -10,8 +10,6 @@ public class PauseMenu : MonoBehaviour
 
 	public Slider musicSlider;
 
-	public Slider sensibilitySlider;
-
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -53,6 +51,8 @@ public class PauseMenu : MonoBehaviour
 	{
 		Resume();
 
+		SaveSystem.instance.Save(SceneManager.GetActiveScene().buildIndex); //saving the current scene, not the next one
+
 		SceneManager.LoadScene("Menu");
 	}
 
@@ -67,11 +67,6 @@ public class PauseMenu : MonoBehaviour
 		Volume = musicSlider.value;
 
 		GetComponent<AudioSource>().volume = Volume;
-	}
-
-	public void SensibilitySlider()
-	{
-
 	}
 
 	///Controls Window
