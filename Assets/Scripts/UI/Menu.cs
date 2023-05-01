@@ -57,7 +57,6 @@ public class Menu : MonoBehaviour
     {
         Volume = musicSlider.value;
 
-        audio.volume.Equals(Volume);
         audio.volume = Volume;
 	}
 
