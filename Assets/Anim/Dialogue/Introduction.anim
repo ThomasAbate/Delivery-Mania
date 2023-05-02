@@ -575,7 +575,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Perso C
+    path: Chef C
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -603,7 +603,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Perso N
+    path: Chef N
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -703,7 +703,7 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
     - serializedVersion: 2
-      path: 633515112
+      path: 2881446342
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -711,7 +711,7 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
     - serializedVersion: 2
-      path: 1534316757
+      path: 3574472059
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -1298,7 +1298,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Perso C
+    path: Chef C
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -1326,7 +1326,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Perso N
+    path: Chef N
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

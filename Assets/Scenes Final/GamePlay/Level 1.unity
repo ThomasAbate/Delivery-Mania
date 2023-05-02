@@ -4364,8 +4364,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3437335752029271098, guid: 7c7ff3e9822db91438e94845ca3b8eea,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 73ec4ae984a0a0f44a2be737e41a6f2f, type: 3}
+    - target: {fileID: 3437335752029271098, guid: 7c7ff3e9822db91438e94845ca3b8eea,
+        type: 3}
       propertyPath: m_Name
       value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437335752029271098, guid: 7c7ff3e9822db91438e94845ca3b8eea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437335752029271100, guid: 7c7ff3e9822db91438e94845ca3b8eea,
         type: 3}
@@ -16901,6 +16911,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1168666404852128969, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1168666404852128969, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2750946920120003450, guid: e90bce838c136ac47835d50a939d1cde,
         type: 3}
       propertyPath: m_RootOrder
@@ -16979,6 +16999,21 @@ PrefabInstance:
     - target: {fileID: 5026708068354730002, guid: e90bce838c136ac47835d50a939d1cde,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077323577460857355, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077323577460857355, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077323577460857355, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6463949726786600844, guid: e90bce838c136ac47835d50a939d1cde,
