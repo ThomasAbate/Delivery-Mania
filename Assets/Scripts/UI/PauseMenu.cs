@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
 	public static bool gameIsPaused;
+
+	public AudioMixer audioMixer;
 
 	public GameObject pauseMenu; //pause menu
 	public GameObject optionsButtons; //buttons of the options menu
@@ -80,10 +83,10 @@ public class PauseMenu : MonoBehaviour
 		Screen.fullScreen = true;
 	}
 
-	public void VolumeSlider()
+	public void VolumeSlider(float music)
 	{
-		GetComponent<AudioSource>().volume = musicSlider.value;
-	}
+		audioMixer.SetFloat("Master", music);
+    }
 
 	///Controls Window
 	public void Controls()
