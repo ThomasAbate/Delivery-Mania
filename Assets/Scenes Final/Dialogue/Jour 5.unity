@@ -1047,8 +1047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -947.11597, y: -540.4477}
-  m_SizeDelta: {x: 441.3894, y: 249.1272}
+  m_AnchoredPosition: {x: -958.3521, y: -540.44775}
+  m_SizeDelta: {x: 651.5679, y: 249.1272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &598793397
 MonoBehaviour:
@@ -1123,8 +1123,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -958.69275, y: -539}
-  m_SizeDelta: {x: 185.3862, y: 0}
+  m_AnchoredPosition: {x: -959.57983, y: -539}
+  m_SizeDelta: {x: 445.3433, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715610443
 MonoBehaviour:
@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bonjour, je suis Thomas Fring,  je suis le PDG de ZIP.
+  m_text: Bonjour, je suis Adam Fring,  je suis le PDG de ZIP.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1604,8 +1604,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -960.00006, y: -539}
-  m_SizeDelta: {x: 0.00024414062, y: 0}
+  m_AnchoredPosition: {x: -961.04846, y: -539}
+  m_SizeDelta: {x: 237.067, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446892493
 MonoBehaviour:
