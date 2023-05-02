@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -21,6 +20,9 @@ public class Menu : MonoBehaviour
 		Buttons.SetActive(true);
         OptionsWindow.SetActive(false);
         ControlsWindow.SetActive(false);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
 	}
 
 	public void StartGame() //new game (tutorial lvl)
@@ -51,16 +53,14 @@ public class Menu : MonoBehaviour
         Screen.fullScreen = true;
 	}
 
-    public void VolumeSlider(float Volume)
+    public void VolumeSlider()
     {
-        Volume = musicSlider.value;
-
-        audio.volume = Volume;
+        audio.volume = musicSlider.value;
 	}
 
-    public void SensibilitySlider()
+    public void SensitivitySlider()
     {
-
+        //you have to make a virtual mouse cursorto change the sensitivity
     }
 
 	public void Back() //from options back to the main menu

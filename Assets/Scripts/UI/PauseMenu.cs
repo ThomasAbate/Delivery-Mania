@@ -4,15 +4,23 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-	public static bool gameIsPaused = false;
+	public static bool gameIsPaused;
 
-	public GameObject pauseMenuUI;
+	public GameObject pauseMenu; //pause menu
+	public GameObject optionsButtons; //buttons of the options menu
+
+	public GameObject controlsScheme; //control scheme
 
 	public Slider musicSlider;
 
+	private void Start()
+	{
+		gameIsPaused = false;
+	}
+
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.I))
+		if (Input.GetKeyDown(KeyCode.P))
 		{
 			if (gameIsPaused)
 			{
@@ -21,30 +29,36 @@ public class PauseMenu : MonoBehaviour
 			else
 			{
 				Paused();
+
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.Confined;
 			}
 		}
 	}
 
 	void Paused()
 	{
-		pauseMenuUI.SetActive(true);
+		pauseMenu.SetActive(true);
+		optionsButtons.SetActive(true);
 
 		Time.timeScale = 0;
 
 		gameIsPaused = true;
 
 		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.Confined;
 	}
 
 	public void Resume()
 	{
-		pauseMenuUI.SetActive(false);
+		pauseMenu.SetActive(false);
 
 		Time.timeScale = 1;
 
 		gameIsPaused = false;
 
 		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	public void LoadMainMenu()
@@ -53,8 +67,12 @@ public class PauseMenu : MonoBehaviour
 
 		SaveSystem.instance.Save(SceneManager.GetActiveScene().buildIndex); //saving the current scene, not the next one
 
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.Confined;
+
 		SceneManager.LoadScene("Menu");
 	}
+
 
 	/// Options Window
 	public void FullScreen()
@@ -62,21 +80,27 @@ public class PauseMenu : MonoBehaviour
 		Screen.fullScreen = true;
 	}
 
-	public void VolumeSlider(float Volume)
+	public void VolumeSlider()
 	{
-		Volume = musicSlider.value;
-
-		GetComponent<AudioSource>().volume = Volume;
+		GetComponent<AudioSource>().volume = musicSlider.value;
 	}
 
 	///Controls Window
 	public void Controls()
 	{
-		pauseMenuUI.SetActive(false);
+		optionsButtons.SetActive(false);
+		controlsScheme.SetActive(true);
+
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.Confined;
 	}
 
 	public void ControlsBack()//from controls to options
 	{
-		pauseMenuUI.SetActive(true);
+		controlsScheme.SetActive(false);
+		optionsButtons.SetActive(true);
+
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.Confined;
 	}
 }

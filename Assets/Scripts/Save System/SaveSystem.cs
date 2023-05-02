@@ -62,7 +62,7 @@ public class SaveSystem : MonoBehaviour
 		//print(jObject.ToString());
 	}
 
-	/*private void Update()
+	/*private void Update() //just some testing
 	{
 		if(Input.GetKeyDown(KeyCode.P))
 		{
