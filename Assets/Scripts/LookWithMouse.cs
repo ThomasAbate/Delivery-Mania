@@ -8,8 +8,6 @@ public class LookWithMouse : MonoBehaviour
 {
     public static LookWithMouse Instance;
 
-    [HideInInspector] public bool isUiActive;
-
     const float k_MouseSensitivityMultiplier = 0.01f;
     const float k_GamepadSensitivityMultiplier = 0.01f;
 
@@ -36,13 +34,11 @@ public class LookWithMouse : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        isUiActive = false;
     }
 
 
     void Update()
     {
-        bool unlockPressed = false, lockPressed = false;
 
         float mouseX = 0, mouseY = 0;
 
@@ -51,20 +47,12 @@ public class LookWithMouse : MonoBehaviour
             var delta = Mouse.current.delta.ReadValue() / 15.0f;
             mouseX += delta.x;
             mouseY += delta.y;
-            if(!isUiActive)
-            {
-                lockPressed = Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame;
-            }
         }
         if (Gamepad.current != null)
         {
             var value = Gamepad.current.rightStick.ReadValue() * 2;
             mouseX += value.x;
             mouseY += value.y;
-        }
-        if (Keyboard.current != null)
-        {
-            unlockPressed = Keyboard.current.escapeKey.wasPressedThisFrame;
         }
 
         if (playerInput.currentControlScheme == "Gamepad")
@@ -77,18 +65,6 @@ public class LookWithMouse : MonoBehaviour
             mouseX *= mouseSensitivity * k_MouseSensitivityMultiplier;
             mouseY *= mouseSensitivity * k_MouseSensitivityMultiplier;
         }
-
-        if (unlockPressed)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        if (lockPressed)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             xRotation -= mouseY;

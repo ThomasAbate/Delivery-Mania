@@ -141,6 +141,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("paused game");
+            PauseMenu.Instance.PauseGame();
+        }
+    }
 
     #endregion
 }

@@ -27,7 +27,6 @@ public class GameOver : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(gameOverUI.transform.GetChild(0).gameObject);
         if (LookWithMouse.Instance.playerInput.currentControlScheme == "KeyboardMouse")
         {
-            LookWithMouse.Instance.isUiActive = true;
             LookWithMouse.Instance.UnlockMouse();
         }
         LookWithMouse.Instance.gamepadSensitivity = 0;

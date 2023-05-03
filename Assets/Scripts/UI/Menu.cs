@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,9 +22,9 @@ public class Menu : MonoBehaviour
 		Buttons.SetActive(true);
         OptionsWindow.SetActive(false);
         ControlsWindow.SetActive(false);
-
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        EventSystem.current.SetSelectedGameObject(Buttons.transform.GetChild(0).gameObject);
 	}
 
 	public void StartGame() //new game (tutorial lvl)

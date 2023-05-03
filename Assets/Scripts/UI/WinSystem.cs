@@ -12,11 +12,13 @@ public class WinSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textMeshPro;
     [SerializeField] private string tutorialVictoryText;
     [SerializeField] private string victoryText;
+    [HideInInspector] public bool isGameWin;
     private void Awake()
     {
         if (Instance) Destroy(this);
         else Instance = this;
         victoryUI.SetActive(false);
+        isGameWin = false;
     }
 
     public void ShowVictoryUI()
@@ -27,13 +29,13 @@ public class WinSystem : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(victoryUI.transform.GetChild(0).gameObject);
         if (LookWithMouse.Instance.playerInput.currentControlScheme == "KeyboardMouse")
         {
-            LookWithMouse.Instance.isUiActive = true;
             LookWithMouse.Instance.UnlockMouse();
         }
         LookWithMouse.Instance.gamepadSensitivity = 0;
         LookWithMouse.Instance.mouseSensitivity = 0;
         PlayerController.Instance.lockMovements = true;
         PlayerInteraction.Instance.lockInteractions = true;
+        isGameWin = true;
     }
 
     private void SetVictoryText()

@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c018d32c356fea14aa22cf496bb5bdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockInteractions: 0
   heldObject: {fileID: 0}
   heldObjectRb: {fileID: 0}
   pickupForce: 2000
@@ -246,6 +247,62 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4c94ec00-bb09-4357-b24b-bee2a69579be
     m_ActionName: Controller/Sprint[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1629858922502004150}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: df0434a2-d150-465b-8472-a7db739c4c60
+    m_ActionName: Controller/Pause[/Keyboard/escape,/DualSenseGamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9bf8845c-b4f6-4524-8075-94549f4f5734
+    m_ActionName: UI/Navigate[/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID/rightStick/up,/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID/rightStick/down,/DualSenseGamepadHID/leftStick/left,/DualSenseGamepadHID/rightStick/left,/DualSenseGamepadHID/leftStick/right,/DualSenseGamepadHID/rightStick/right,/DualSenseGamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5abd4378-dd7d-4787-95fa-29c3499efba6
+    m_ActionName: UI/Submit[/Keyboard/enter,/DualSenseGamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0ab92f6d-423b-4bb4-ac2d-a403f3372d7e
+    m_ActionName: UI/Cancel[/Keyboard/escape,/DualSenseGamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7e462406-f895-4f3b-b3de-20476869a087
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e491397c-9718-4512-af12-e56f22080ece
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 937172f2-099a-4f4d-961e-d43c786f56cc
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab945e67-eab4-4dd7-bdde-be75d665fff8
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 496de6f5-1047-4b09-9e9a-dc3fe03b23bd
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5a3cd3ac-f5f6-49a2-b381-8c425bad4e79
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a208a48c-b01f-4b1f-b568-a042c9000aa8
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controller
@@ -444,7 +501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd89d9bb72a09e41b52c39b6d3eefc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUiActive: 0
   playerInput: {fileID: 266766637}
   mouseSensitivity: 100
   gamepadSensitivity: 50
