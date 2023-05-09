@@ -1,13 +1,22 @@
 using Newtonsoft.Json.Linq;
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class SaveSystem : MonoBehaviour
 {
 	public static SaveSystem instance;
 
-	public int _lvl;
+    /*public GameObject loadingScreen;
+    public Image progressBar;
+    public TextMeshProUGUI progressText;*/
+
+    #region Options to save
+    public float music;
+    public bool isFulscreen;
+    #endregion
+
+    public int _lvl;
 
 	private void Awake()
 	{
@@ -15,7 +24,7 @@ public class SaveSystem : MonoBehaviour
 		else instance = this;
 	}
 
-	[System.Serializable] //makes the class automatically serializable
+	/*[System.Serializable] //makes the class automatically serializable
 	private class DataContainer
 	{
 		//this nested class is a Data Container for all the variables that need to be saved
@@ -25,14 +34,14 @@ public class SaveSystem : MonoBehaviour
 		{
 			_lvl = lvl;
 		}
-	}
+	}*/
 
 	public void Save(int scene)
 	{
-		_lvl = scene + 1;
+		_lvl = scene;
 
-		string saveFilePath = Application.persistentDataPath + "/saveGame.fsav";
-		//print("Saving to : " + saveFilePath);
+        string saveFilePath = Application.persistentDataPath + "/saveGame.fsav";
+		print("Saving to : " + saveFilePath);
 
 		JObject jObject = new JObject();
 		jObject.Add("componentName", GetType().ToString());
@@ -41,7 +50,7 @@ public class SaveSystem : MonoBehaviour
 		jObject.Add("data", jDataObject);
 
 		jDataObject.Add("_lvl", _lvl);
-		
+
 		StreamWriter sw = new StreamWriter(saveFilePath);
 		sw.WriteLine(jObject.ToString());
 
@@ -49,20 +58,29 @@ public class SaveSystem : MonoBehaviour
 	}
 	public void Load()
 	{
-		string saveFilePath = Application.persistentDataPath + "/saveGame.fsav";
+        //StartCoroutine(LoadingScreen());
 
-		StreamReader sr = new StreamReader(saveFilePath);
-		string jsonString = sr.ReadToEnd();
+        if (!File.Exists(Application.persistentDataPath + "/saveGame.fsav")) //check if there is a save file
+		{
+            SceneManager.LoadScene("Intro");
+        }
+		else
+		{
+			string saveFilePath = Application.persistentDataPath + "/saveGame.fsav";
 
-		sr.Close();
-		JObject jObject = JObject.Parse(jsonString);
+			StreamReader sr = new StreamReader(saveFilePath);
+			string jsonString = sr.ReadToEnd();
 
-		_lvl = (int)jObject["data"]["_lvl"];
+			sr.Close();
+			JObject jObject = JObject.Parse(jsonString);
 
-		//print(jObject.ToString());
+			_lvl = (int)jObject["data"]["_lvl"];
+
+			//print(jObject.ToString());
+		}
 	}
 
-	/*private void Update() //just some testing
+    /*private void Update() //just some testing
 	{
 		if(Input.GetKeyDown(KeyCode.P))
 		{
@@ -74,4 +92,67 @@ public class SaveSystem : MonoBehaviour
 			Load();
 		}
 	}*/
+
+    /*private IEnumerator LoadingScreen()
+    {
+        loadingScreen.SetActive(true);
+
+        AsyncOperation async = SceneManager.LoadSceneAsync("Game Scene");
+		while (!async.isDone)
+        {
+            //progressBar.fillAmount = async.progress;
+
+			if (async.progress >= 0.95f)
+			{
+                progressText.text = "Press any key to continue";
+            }
+            yield return null;
+        }
+        loadingScreen.SetActive(false);
+    }*/
+
+
+	public void SaveOptions()
+	{
+		isFulscreen = Menu.menuInstance.fullscreenToggle.isOn;
+        music = Menu.menuInstance.musicSlider.value;
+
+        string saveFilePath = Application.persistentDataPath + "/saveOptions.fsav";
+        print("Saving to : " + saveFilePath);
+
+        JObject jObject = new JObject();
+        jObject.Add("componentName", GetType().ToString());
+
+        JObject jOptionsDataObject = new JObject();
+        jObject.Add("options data", jOptionsDataObject);
+
+        jOptionsDataObject.Add("isFulscreen", isFulscreen);
+        jOptionsDataObject.Add("music", music);
+
+        StreamWriter sw = new StreamWriter(saveFilePath);
+        sw.WriteLine(jObject.ToString());
+
+        sw.Close();
+    }
+
+	public void LoadOptions()
+	{
+        if (!File.Exists(Application.persistentDataPath + "/saveOptions.fsav")) //check if there is a save file for the options
+        {
+            Menu.menuInstance.resetOptionsDefault();
+        }
+        else
+        {
+            string saveFilePath = Application.persistentDataPath + "/saveOptions.fsav";
+
+            StreamReader sr = new StreamReader(saveFilePath);
+            string jsonString = sr.ReadToEnd();
+
+            sr.Close();
+            JObject jObject = JObject.Parse(jsonString);
+
+			isFulscreen = (bool)jObject["options data"]["isFulscreen"];
+			music = (float)jObject["options data"]["music"];
+        }
+    }
 }

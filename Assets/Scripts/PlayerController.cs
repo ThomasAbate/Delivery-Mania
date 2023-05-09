@@ -145,8 +145,8 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("paused game");
             PauseMenu.Instance.PauseGame();
+            Debug.Log("paused game");
         }
     }
 

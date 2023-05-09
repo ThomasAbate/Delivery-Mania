@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu Instance;
 
+    public SaveSystem saveSystem;
+
     public static bool gameIsPaused;
 
 	public AudioMixer audioMixer;
@@ -18,6 +20,7 @@ public class PauseMenu : MonoBehaviour
 
 	public GameObject controlsScheme; //control scheme
 
+	public Toggle fullscreenToggle;
 	public Slider musicSlider;
 
     private void Awake()
@@ -53,9 +56,14 @@ public class PauseMenu : MonoBehaviour
 
 
     void Paused()
-	{
-		pauseMenu.SetActive(true);
+    {
+        SaveSystem.instance.LoadOptions(); //load options when entering pause menu
+        fullscreenToggle.isOn = SaveSystem.instance.isFulscreen;
+        musicSlider.value = SaveSystem.instance.music;
+
+        pauseMenu.SetActive(true);
 		optionsButtons.SetActive(true);
+
         EventSystem.current.SetSelectedGameObject(optionsButtons.transform.GetChild(0).gameObject);
 
         Time.timeScale = 0;
@@ -68,6 +76,8 @@ public class PauseMenu : MonoBehaviour
 		pauseMenu.SetActive(false);
         controlsScheme.SetActive(false);
 
+        saveSystem.SaveOptions(); //save options when closing the options menu
+        
         Time.timeScale = 1;
 
 		gameIsPaused = false;
@@ -81,8 +91,9 @@ public class PauseMenu : MonoBehaviour
 		Resume();
 
 		SaveSystem.instance.Save(SceneManager.GetActiveScene().buildIndex); //saving the current scene, not the next one
+        saveSystem.SaveOptions(); //save options when closing the options menu
 
-		Cursor.visible = true;
+        Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.Confined;
 
 		SceneManager.LoadScene("Menu");
@@ -93,15 +104,15 @@ public class PauseMenu : MonoBehaviour
 	public void FullScreen()
 	{
 		Screen.fullScreen = true;
-	}
+    }
 
-	public void VolumeSlider(float music)
+    public void VolumeSlider(float music)
 	{
 		audioMixer.SetFloat("Master", music);
     }
 
-	///Controls Window
-	public void Controls()
+    ///Controls Window
+    public void Controls()
 	{
 		optionsButtons.SetActive(false);
 		controlsScheme.SetActive(true);
