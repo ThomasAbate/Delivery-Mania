@@ -74,7 +74,7 @@ public class Menu : MonoBehaviour
 
     public void SensitivitySlider()
     {
-        //you have to make a virtual mouse cursorto change the sensitivity
+        //you have to make a virtual mouse cursor to change the sensitivity
     }
 
 	public void Back() //from options back to the main menu

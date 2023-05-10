@@ -46,6 +46,7 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 Paused();
+
 				if(LookWithMouse.Instance.playerInput.currentControlScheme != "Gamepad")
 				{
 					Cursor.visible = true;
@@ -55,11 +56,9 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-
     void Paused()
     {
         SaveSystem.instance.LoadOptions(); //load options when entering pause menu
-
         fullscreenToggle.isOn = SaveSystem.instance.isFulscreen;
         musicSlider.value = SaveSystem.instance.music;
 
