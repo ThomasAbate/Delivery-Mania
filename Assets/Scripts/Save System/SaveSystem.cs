@@ -2,6 +2,7 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -36,8 +37,10 @@ public class SaveSystem : MonoBehaviour
         string saveFilePath = Application.persistentDataPath + "/saveMania.fsav";
 		//print("Saving to : " + saveFilePath);
 
-		JObject jObject = new JObject();
-		jObject.Add("Save File", GetType().ToString());
+		JObject jObject = new JObject
+		{
+			{ "Save File", GetType().ToString() }
+		};
 
 		JObject jDataObject = new JObject();
 		jObject.Add("Data", jDataObject);
@@ -92,12 +95,14 @@ public class SaveSystem : MonoBehaviour
         music = musicSlider.value;
 
         string saveFilePath = Application.persistentDataPath + "/optionsMania.fsav";
-        //print("Saving to : " + saveFilePath);
+		//print("Saving to : " + saveFilePath);
 
-        JObject jObject = new JObject();
-        jObject.Add("Options Save File", GetType().ToString());
+		JObject jObject = new JObject
+		{
+			{ "Options Save File", GetType().ToString() }
+		};
 
-        JObject jOptionsDataObject = new JObject();
+		JObject jOptionsDataObject = new JObject();
         jObject.Add("options data", jOptionsDataObject);
 
         jOptionsDataObject.Add("Fulscreen", isFulscreen);
