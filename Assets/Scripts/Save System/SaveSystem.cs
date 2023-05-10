@@ -1,6 +1,5 @@
 using Newtonsoft.Json.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.UI;
 
@@ -72,9 +71,10 @@ public class SaveSystem : MonoBehaviour
         loadingScreen.SetActive(true);
 
         AsyncOperation async = SceneManager.LoadSceneAsync("Game Scene");
+
 		while (!async.isDone)
         {
-            //progressBar.fillAmount = async.progress;
+            progressBar.fillAmount = async.progress;
 
 			if (async.progress >= 0.95f)
 			{
@@ -117,7 +117,7 @@ public class SaveSystem : MonoBehaviour
 			isFulscreen = true;
 			Screen.fullScreen = true;
 			
-			music = 100;
+			music = musicSlider.maxValue;
         }
         else
         {
