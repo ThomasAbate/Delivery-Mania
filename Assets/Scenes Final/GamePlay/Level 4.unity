@@ -18282,6 +18282,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6472159378394643877, guid: e90bce838c136ac47835d50a939d1cde,
+        type: 3}
+      propertyPath: tutorialVictoryText
+      value: 'Good Job ! '
+      objectReference: {fileID: 0}
     - target: {fileID: 6472159378394643879, guid: e90bce838c136ac47835d50a939d1cde,
         type: 3}
       propertyPath: level

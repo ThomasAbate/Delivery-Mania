@@ -9,8 +9,6 @@ public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu Instance;
 
-    public SaveSystem saveSystem;
-
     public static bool gameIsPaused;
 
 	public AudioMixer audioMixer;
@@ -59,8 +57,12 @@ public class PauseMenu : MonoBehaviour
     void Paused()
     {
         SaveSystem.instance.LoadOptions(); //load options when entering pause menu
+
         fullscreenToggle.isOn = SaveSystem.instance.isFulscreen;
+        Screen.fullScreen = SaveSystem.instance.isFulscreen;
+
         musicSlider.value = SaveSystem.instance.music;
+
 
         pauseMenu.SetActive(true);
 		optionsButtons.SetActive(true);
@@ -77,7 +79,7 @@ public class PauseMenu : MonoBehaviour
 		pauseMenu.SetActive(false);
         controlsScheme.SetActive(false);
 
-        saveSystem.SaveOptions(); //save options when closing the options menu
+        SaveSystem.instance.SaveOptions(); //save options when closing the options menu
         
         Time.timeScale = 1;
 
@@ -92,7 +94,7 @@ public class PauseMenu : MonoBehaviour
 		Resume();
 
 		SaveSystem.instance.Save(SceneManager.GetActiveScene().buildIndex); //saving the current scene, not the next one
-        saveSystem.SaveOptions(); //save options when closing the options menu
+        SaveSystem.instance.SaveOptions(); //save options when closing the options menu
 
         Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.Confined;
@@ -109,7 +111,7 @@ public class PauseMenu : MonoBehaviour
 
     public void VolumeSlider(float music)
 	{
-		audioMixer.SetFloat("Master", music);
+		audioMixer.SetFloat("Music", music);
     }
 
     ///Controls Window
@@ -117,6 +119,7 @@ public class PauseMenu : MonoBehaviour
 	{
 		optionsButtons.SetActive(false);
 		controlsScheme.SetActive(true);
+
         EventSystem.current.SetSelectedGameObject(controlsScheme.transform.GetChild(0).transform.GetChild(0).gameObject);
 
         if (LookWithMouse.Instance.playerInput.currentControlScheme != "Gamepad")
@@ -137,13 +140,5 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
         }
-	}
-
-	public void resetDefault()
-	{
-		fullscreenToggle.isOn = true;
-		Screen.fullScreen = true;
-
-		musicSlider.value = musicSlider.maxValue;
 	}
 }	

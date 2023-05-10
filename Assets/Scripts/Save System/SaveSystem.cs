@@ -2,6 +2,7 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.UI;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class SaveSystem : MonoBehaviour
     #region Options to save
     public float music;
     public bool isFulscreen;
+
+	public Toggle fullScreenToggle;
+	public Slider musicSlider;
     #endregion
 
     public int _lvl;
@@ -103,8 +107,8 @@ public class SaveSystem : MonoBehaviour
 
 	public void SaveOptions()
 	{
-		isFulscreen = Menu.Instance.fullscreenToggle.isOn;
-        music = Menu.Instance.musicSlider.value;
+		isFulscreen = fullScreenToggle.isOn;
+        music = musicSlider.value;
 
         string saveFilePath = Application.persistentDataPath + "/saveOptions.fsav";
         print("Saving to : " + saveFilePath);
@@ -128,16 +132,11 @@ public class SaveSystem : MonoBehaviour
 	{
         if (!File.Exists(Application.persistentDataPath + "/saveOptions.fsav")) //check if there is a save file for the options
         {
-            
-
-			//if(current scene == "Menu")
-			//{
-				Menu.Instance.resetOptionsDefault();
-			//}
-			//else
-			//{
-				//PauseMenu.Instance.resetDefault();
-			//}
+			//sets them to default settings
+			isFulscreen = true;
+			Screen.fullScreen = true;
+			
+			music = 100;
         }
         else
         {

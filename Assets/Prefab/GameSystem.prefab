@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15eedf4fb88ec34fb19cceda206b3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveSystem: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 4edb816049684e64390945dcf698f8c1, type: 2}
   pauseMenu: {fileID: 8180433730522336576}
   optionsButtons: {fileID: 2878313236075538434}
@@ -472,6 +471,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 2750946920120003450}
     m_Modifications:
+    - target: {fileID: 4141976602477883509, guid: 0f7a03f10c64632449dca42d8441c790,
+        type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 7253467843441435265}
+    - target: {fileID: 4141976602477883509, guid: 0f7a03f10c64632449dca42d8441c790,
+        type: 3}
+      propertyPath: fullScreenToggle
+      value: 
+      objectReference: {fileID: 8969103794667053957}
     - target: {fileID: 4355313199967516032, guid: 0f7a03f10c64632449dca42d8441c790,
         type: 3}
       propertyPath: redCounter

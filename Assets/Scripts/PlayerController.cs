@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     private CharacterController controller;
+
     public bool lockMovements;
 
     [Header("Movement Settings")]
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Instance) Destroy(this);
         else Instance = this;
+
         controller = GetComponent<CharacterController>();
         speedValue = speed;
     }
@@ -48,11 +50,13 @@ public class PlayerController : MonoBehaviour
             CheckSprint();
 
             Vector3 move = transform.right * x + transform.forward * z;
+
             currentMoveVelocity = Vector3.SmoothDamp(
                 currentMoveVelocity,
                 move * speedValue,
                 ref moveDampVelocity,
                 moveSmoothTime);
+
             controller.Move(currentMoveVelocity * Time.deltaTime);
 
             CheckJump();
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
             jumpTimer += Time.deltaTime;
             float jumpHeight = Mathf.Clamp01(jumpTimer / jumpHoldTime);
             verticalVelocity = jumpSpeed * jumpHeight;
+
             if (verticalVelocity >= jumpSpeed)
                 isJumping = false;
         }
@@ -112,7 +117,8 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.started) { 
+        if(context.started) 
+        { 
             if (controller.isGrounded)
             {
                 isJumping = true;
@@ -141,15 +147,15 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    //public void Pause(InputAction.CallbackContext context)
-    //{
-    //    if (context.started)
-    //    {
-    //        PauseMenu.Instance.PauseGame();
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PauseMenu.Instance.PauseGame();
 
-    //        Debug.Log("paused game");
-    //    }
-    //}
+            Debug.Log("paused game");
+        }
+    }
 
     #endregion
 }

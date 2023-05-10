@@ -6480,6 +6480,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a62ea4c2c33a47b6d755aca94a542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: 0
+  isFulscreen: 0
+  fullScreenToggle: {fileID: 1155329352}
+  musicSlider: {fileID: 250028732}
   _lvl: 0
 --- !u!1001 &616278692
 PrefabInstance:
