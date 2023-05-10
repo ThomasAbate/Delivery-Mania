@@ -30,32 +30,20 @@ public class SaveSystem : MonoBehaviour
 		else instance = this;
 	}
 
-	/*[System.Serializable] //makes the class automatically serializable
-	private class DataContainer
-	{
-		//this nested class is a Data Container for all the variables that need to be saved
-		int _lvl;
-
-		public DataContainer(int lvl)
-		{
-			_lvl = lvl;
-		}
-	}*/
-
 	public void Save(int scene)
 	{
 		_lvl = scene;
 
-        string saveFilePath = Application.persistentDataPath + "/saveGame.fsav";
-		print("Saving to : " + saveFilePath);
+        string saveFilePath = Application.persistentDataPath + "/saveMania.fsav";
+		//print("Saving to : " + saveFilePath);
 
 		JObject jObject = new JObject();
-		jObject.Add("componentName", GetType().ToString());
+		jObject.Add("Save File", GetType().ToString());
 
 		JObject jDataObject = new JObject();
-		jObject.Add("data", jDataObject);
+		jObject.Add("Data", jDataObject);
 
-		jDataObject.Add("_lvl", _lvl);
+		jDataObject.Add("Level", _lvl);
 
 		StreamWriter sw = new StreamWriter(saveFilePath);
 		sw.WriteLine(jObject.ToString());
@@ -66,13 +54,13 @@ public class SaveSystem : MonoBehaviour
 	{
         //StartCoroutine(LoadingScreen());
 
-        if (!File.Exists(Application.persistentDataPath + "/saveGame.fsav")) //check if there is a save file
+        if (!File.Exists(Application.persistentDataPath + "/saveMania.fsav")) //check if there is a save file
 		{
             SceneManager.LoadScene("Intro");
         }
 		else
 		{
-			string saveFilePath = Application.persistentDataPath + "/saveGame.fsav";
+			string saveFilePath = Application.persistentDataPath + "/saveMania.fsav";
 
 			StreamReader sr = new StreamReader(saveFilePath);
 			string jsonString = sr.ReadToEnd();
@@ -80,7 +68,7 @@ public class SaveSystem : MonoBehaviour
 			sr.Close();
 			JObject jObject = JObject.Parse(jsonString);
 
-			_lvl = (int)jObject["data"]["_lvl"];
+			_lvl = (int)jObject["Data"]["Level"];
 
 			//print(jObject.ToString());
 		}
@@ -110,17 +98,17 @@ public class SaveSystem : MonoBehaviour
 		isFulscreen = fullScreenToggle.isOn;
         music = musicSlider.value;
 
-        string saveFilePath = Application.persistentDataPath + "/saveOptions.fsav";
-        print("Saving to : " + saveFilePath);
+        string saveFilePath = Application.persistentDataPath + "/optionsMania.fsav";
+        //print("Saving to : " + saveFilePath);
 
         JObject jObject = new JObject();
-        jObject.Add("componentName", GetType().ToString());
+        jObject.Add("Options Save File", GetType().ToString());
 
         JObject jOptionsDataObject = new JObject();
         jObject.Add("options data", jOptionsDataObject);
 
-        jOptionsDataObject.Add("isFulscreen", isFulscreen);
-        jOptionsDataObject.Add("music", music);
+        jOptionsDataObject.Add("Fulscreen", isFulscreen);
+        jOptionsDataObject.Add("Music", music);
 
         StreamWriter sw = new StreamWriter(saveFilePath);
         sw.WriteLine(jObject.ToString());
@@ -130,7 +118,7 @@ public class SaveSystem : MonoBehaviour
 
 	public void LoadOptions()
 	{
-        if (!File.Exists(Application.persistentDataPath + "/saveOptions.fsav")) //check if there is a save file for the options
+        if (!File.Exists(Application.persistentDataPath + "/optionsMania.fsav")) //check if there is a save file for the options
         {
 			//sets them to default settings
 			isFulscreen = true;
@@ -140,7 +128,7 @@ public class SaveSystem : MonoBehaviour
         }
         else
         {
-            string saveFilePath = Application.persistentDataPath + "/saveOptions.fsav";
+            string saveFilePath = Application.persistentDataPath + "/optionsMania.fsav";
 
             StreamReader sr = new StreamReader(saveFilePath);
             string jsonString = sr.ReadToEnd();
@@ -148,8 +136,8 @@ public class SaveSystem : MonoBehaviour
             sr.Close();
             JObject jObject = JObject.Parse(jsonString);
 
-			isFulscreen = (bool)jObject["options data"]["isFulscreen"];
-			music = (float)jObject["options data"]["music"];
+			isFulscreen = (bool)jObject["options data"]["Fulscreen"];
+			music = (float)jObject["options data"]["Music"];
         }
     }
 }

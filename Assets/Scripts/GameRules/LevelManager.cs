@@ -8,8 +8,6 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     public Level level;
 
-    public SaveSystem saveSystem;
-
     private void Awake()
     {
         if (Instance) Destroy(this);

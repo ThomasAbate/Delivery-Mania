@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         {
             PauseMenu.Instance.PauseGame();
 
-            Debug.Log("paused game");
+            Debug.Log("game paused");
         }
     }
 

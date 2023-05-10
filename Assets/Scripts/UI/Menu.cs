@@ -18,8 +18,6 @@ public class Menu : MonoBehaviour
     public GameObject OptionsWindow;
     public GameObject ControlsWindow;
 
-    public SaveSystem saveSystem;
-
 	private void Start() //to make sure there is no problem on start
 	{
         if (Instance) Destroy(this);
@@ -42,9 +40,9 @@ public class Menu : MonoBehaviour
 
     public void Continue() //from the last save
     {
-        saveSystem.Load();
+        SaveSystem.instance.Load();
 
-        SceneManager.LoadScene(saveSystem._lvl);
+        SceneManager.LoadScene(SaveSystem.instance._lvl);
     }
 	public void ExitGame() //close App
 	{
@@ -54,7 +52,7 @@ public class Menu : MonoBehaviour
     /// Options Window
 	public void Options() //from menu to options
     {
-        saveSystem.LoadOptions(); //load options when entering options menu
+        SaveSystem.instance.LoadOptions(); //load options when entering options menu
         fullscreenToggle.isOn = SaveSystem.instance.isFulscreen;
         musicSlider.value = SaveSystem.instance.music;
 
@@ -79,7 +77,7 @@ public class Menu : MonoBehaviour
 
 	public void Back() //from options back to the main menu
     {
-        saveSystem.SaveOptions(); //save options when closing the options menu
+        SaveSystem.instance.SaveOptions(); //save options when closing the options menu
 
         OptionsWindow.SetActive(false);
         Buttons.SetActive(true);

@@ -12,13 +12,14 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused;
 
 	public AudioMixer audioMixer;
-
+    public AudioSource audioSource;
+    [Space]
 	public GameObject pauseMenu; //pause menu
 	public GameObject optionsButtons; //buttons of the options menu
-
-	public GameObject controlsScheme; //control scheme
-
-	public Toggle fullscreenToggle;
+    [Space]
+    public GameObject controlsScheme; //control scheme
+    [Space]
+    public Toggle fullscreenToggle;
 	public Slider musicSlider;
 
     private void Awake()
@@ -109,9 +110,11 @@ public class PauseMenu : MonoBehaviour
 		Screen.fullScreen = true;
     }
 
-    public void VolumeSlider(float music)
+    public void VolumeSlider()
 	{
-		audioMixer.SetFloat("Music", music);
+		//audioMixer.SetFloat("Master", music);
+
+        audioSource.volume = musicSlider.value;
     }
 
     ///Controls Window
