@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public static Menu menuInstance;
+    public static Menu Instance;
 
     public Toggle fullscreenToggle;
 
@@ -22,8 +22,8 @@ public class Menu : MonoBehaviour
 
 	private void Start() //to make sure there is no problem on start
 	{
-        if (menuInstance) Destroy(this);
-        else menuInstance = this;
+        if (Instance) Destroy(this);
+        else Instance = this;
 
         Buttons.SetActive(true);
         OptionsWindow.SetActive(false);
@@ -105,6 +105,4 @@ public class Menu : MonoBehaviour
 
         musicSlider.value = musicSlider.maxValue;
     }
-
-
 }

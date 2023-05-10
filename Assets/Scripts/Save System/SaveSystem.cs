@@ -7,9 +7,11 @@ public class SaveSystem : MonoBehaviour
 {
 	public static SaveSystem instance;
 
-    /*public GameObject loadingScreen;
+    /*
+    public GameObject loadingScreen;
     public Image progressBar;
-    public TextMeshProUGUI progressText;*/
+    public TextMeshProUGUI progressText;
+	*/
 
     #region Options to save
     public float music;
@@ -80,19 +82,6 @@ public class SaveSystem : MonoBehaviour
 		}
 	}
 
-    /*private void Update() //just some testing
-	{
-		if(Input.GetKeyDown(KeyCode.P))
-		{
-			Save();
-		}
-
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			Load();
-		}
-	}*/
-
     /*private IEnumerator LoadingScreen()
     {
         loadingScreen.SetActive(true);
@@ -114,8 +103,8 @@ public class SaveSystem : MonoBehaviour
 
 	public void SaveOptions()
 	{
-		isFulscreen = Menu.menuInstance.fullscreenToggle.isOn;
-        music = Menu.menuInstance.musicSlider.value;
+		isFulscreen = Menu.Instance.fullscreenToggle.isOn;
+        music = Menu.Instance.musicSlider.value;
 
         string saveFilePath = Application.persistentDataPath + "/saveOptions.fsav";
         print("Saving to : " + saveFilePath);
@@ -139,7 +128,16 @@ public class SaveSystem : MonoBehaviour
 	{
         if (!File.Exists(Application.persistentDataPath + "/saveOptions.fsav")) //check if there is a save file for the options
         {
-            Menu.menuInstance.resetOptionsDefault();
+            
+
+			//if(current scene == "Menu")
+			//{
+				Menu.Instance.resetOptionsDefault();
+			//}
+			//else
+			//{
+				//PauseMenu.Instance.resetDefault();
+			//}
         }
         else
         {

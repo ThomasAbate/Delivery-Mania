@@ -34,6 +34,7 @@ public class PauseMenu : MonoBehaviour
 		gameIsPaused = false;
 	}
 
+
     public void PauseGame()
     {
         if (!GameOver.Instance.isGameOver && !WinSystem.Instance.isGameWin)
@@ -58,6 +59,7 @@ public class PauseMenu : MonoBehaviour
     void Paused()
     {
         SaveSystem.instance.LoadOptions(); //load options when entering pause menu
+
         fullscreenToggle.isOn = SaveSystem.instance.isFulscreen;
         musicSlider.value = SaveSystem.instance.music;
 
@@ -136,5 +138,13 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
         }
+	}
+
+	public void resetDefault()
+	{
+		fullscreenToggle.isOn = true;
+		Screen.fullScreen = true;
+
+		musicSlider.value = musicSlider.maxValue;
 	}
 }	

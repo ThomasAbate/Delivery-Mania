@@ -46,10 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15eedf4fb88ec34fb19cceda206b3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveSystem: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 4edb816049684e64390945dcf698f8c1, type: 2}
   pauseMenu: {fileID: 8180433730522336576}
   optionsButtons: {fileID: 2878313236075538434}
   controlsScheme: {fileID: 7964578488130043279}
+  fullscreenToggle: {fileID: 8969103794667053957}
   musicSlider: {fileID: 7253467843441435265}
 --- !u!1001 &6472159377263375856
 PrefabInstance:
@@ -450,6 +452,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6472159377263375856}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8969103794667053957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2713720901236676213, guid: 74d19053ca0b4b6469affd58dc967b4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6472159377263375856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7323016745358116902
 PrefabInstance:
   m_ObjectHideFlags: 0
