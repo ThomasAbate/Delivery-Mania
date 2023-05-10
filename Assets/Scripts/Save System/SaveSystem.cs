@@ -54,24 +54,17 @@ public class SaveSystem : MonoBehaviour
 	{
         //StartCoroutine(LoadingScreen());
 
-        if (!File.Exists(Application.persistentDataPath + "/saveMania.fsav")) //check if there is a save file
-		{
-            SceneManager.LoadScene("Intro");
-        }
-		else
-		{
-			string saveFilePath = Application.persistentDataPath + "/saveMania.fsav";
+		string saveFilePath = Application.persistentDataPath + "/saveMania.fsav";
 
-			StreamReader sr = new StreamReader(saveFilePath);
-			string jsonString = sr.ReadToEnd();
+		StreamReader sr = new StreamReader(saveFilePath);
+		string jsonString = sr.ReadToEnd();
 
-			sr.Close();
-			JObject jObject = JObject.Parse(jsonString);
+		sr.Close();
+		JObject jObject = JObject.Parse(jsonString);
 
-			_lvl = (int)jObject["Data"]["Level"];
+		_lvl = (int)jObject["Data"]["Level"];
 
-			//print(jObject.ToString());
-		}
+		//print(jObject.ToString());
 	}
 
     /*private IEnumerator LoadingScreen()

@@ -3309,7 +3309,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 80, y: 0}
-  m_SizeDelta: {x: 310, y: 24}
+  m_SizeDelta: {x: 310, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &264359458
 PrefabInstance:
@@ -6467,7 +6467,6 @@ MonoBehaviour:
   Buttons: {fileID: 28652373}
   OptionsWindow: {fileID: 1419002570}
   ControlsWindow: {fileID: 52028226}
-  saveSystem: {fileID: 615758868}
 --- !u!114 &615758868
 MonoBehaviour:
   m_ObjectHideFlags: 0

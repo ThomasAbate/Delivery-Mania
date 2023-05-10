@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System.IO;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
@@ -40,9 +41,16 @@ public class Menu : MonoBehaviour
 
     public void Continue() //from the last save
     {
-        SaveSystem.instance.Load();
+        if (!File.Exists(Application.persistentDataPath + "/saveMania.fsav")) //check if there is a save file
+        {
+            SceneManager.LoadScene("Intro");
+        }
+        else
+        {
+            SaveSystem.instance.Load();
 
-        SceneManager.LoadScene(SaveSystem.instance._lvl);
+            SceneManager.LoadScene(SaveSystem.instance._lvl);
+        }
     }
 	public void ExitGame() //close App
 	{
