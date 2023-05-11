@@ -39,7 +39,7 @@ public class SaveSystem : MonoBehaviour
 
 		JObject jObject = new JObject
 		{
-			{ "Save File", GetType().ToString() }
+			{ "Component Name", GetType().ToString() }
 		};
 
 		JObject jDataObject = new JObject();
@@ -99,7 +99,7 @@ public class SaveSystem : MonoBehaviour
 
 		JObject jObject = new JObject
 		{
-			{ "Options Save File", GetType().ToString() }
+			{ "Component Name", GetType().ToString() }
 		};
 
 		JObject jOptionsDataObject = new JObject();
