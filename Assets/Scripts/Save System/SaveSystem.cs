@@ -2,7 +2,6 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class SaveSystem : MonoBehaviour
 {
